@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://komilovakbar999-collab.github.io/kali-linux/sitemap.xml

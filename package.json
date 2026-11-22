@@ -1,0 +1,16 @@
+{
+  "name": "kali-linux-reference",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "test:e2e": "playwright test",
+    "lighthouse": "lhci autorun",
+    "build:data": "node scripts/build-data.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "lighthouse": "^12.0.0",
+    "@lhci/cli": "^0.14.0",
+    "http-server": "^14.1.1"
+  }
+}

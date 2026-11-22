@@ -1,0 +1,364 @@
+/* Kali Linux — UX kengaytmalari: yordam, avtotoldirish, so'nggi ko'rilganlar, chop etish/QR.
+ * Asosiy o'zgaruvchilar styles.css dan olinadi; zaxira qiymatlar mustaqil ishlash uchun. */
+
+/* ---------- Yordam dialogi ---------- */
+#kaliHelpDialog {
+  --ux-panel: var(--panel, #151515);
+  --ux-line: var(--line, #292929);
+  --ux-text: var(--text, #f0f0f0);
+  --ux-muted: var(--muted, #a5a5a5);
+  --ux-red: var(--red, #ef3b2c);
+  color: var(--ux-text);
+  font: 14px/1.5 var(--sans, Inter, system-ui, sans-serif);
+}
+
+dialog#kaliHelpDialog {
+  width: min(560px, calc(100vw - 24px));
+  max-height: calc(100vh - 32px);
+  padding: 0;
+  border: 1px solid var(--ux-line);
+  border-radius: var(--radius, 12px);
+  background: var(--ux-panel);
+  box-shadow: var(--shadow, 0 18px 50px rgba(0, 0, 0, .55));
+  overflow: auto;
+}
+
+dialog#kaliHelpDialog::backdrop {
+  background: rgba(0, 0, 0, .68);
+  backdrop-filter: blur(3px);
+}
+
+div#kaliHelpDialog.kali-help-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, .68);
+  backdrop-filter: blur(3px);
+}
+
+div#kaliHelpDialog.kali-help-overlay[hidden] { display: none; }
+
+#kaliHelpBox {
+  width: 100%;
+  max-width: 560px;
+  max-height: calc(100vh - 32px);
+  padding: 22px 24px 18px;
+  overflow: auto;
+  border: 1px solid var(--ux-line);
+  border-radius: var(--radius, 12px);
+  background: var(--ux-panel);
+  box-shadow: var(--shadow, 0 18px 50px rgba(0, 0, 0, .55));
+}
+
+dialog#kaliHelpDialog #kaliHelpBox {
+  width: auto;
+  max-height: none;
+  padding: 22px 24px 18px;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+#kaliHelpHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+#kaliHelpTitle {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+
+.kali-help__close {
+  flex: 0 0 auto;
+  padding: 5px 10px;
+  border: 1px solid var(--ux-line);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ux-text);
+  font: 600 12px var(--sans, Inter, system-ui, sans-serif);
+  cursor: pointer;
+}
+
+.kali-help__close:hover { border-color: var(--ux-red); color: var(--ux-red); }
+.kali-help__close:focus-visible, .term-suggest__item:focus-visible,
+.recent-chip:focus-visible, .print-actions button:focus-visible {
+  outline: 2px solid var(--ux-red);
+  outline-offset: 2px;
+}
+
+#kaliHelpSub { margin: 6px 0 14px; color: var(--ux-muted); font-size: 12px; }
+
+#kaliHelpList {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.kali-help__row {
+  display: grid;
+  grid-template-columns: minmax(112px, 168px) 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 7px 10px;
+  border: 1px solid var(--ux-line);
+  border-radius: 8px;
+  background: rgba(127, 127, 127, .06);
+}
+
+.kali-help__row kbd {
+  display: inline-block;
+  padding: 3px 7px;
+  border: 1px solid var(--ux-line);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  background: rgba(127, 127, 127, .1);
+  color: var(--ux-text);
+  font: 600 11px/1.4 var(--mono, ui-monospace, Menlo, Consolas, monospace);
+  white-space: nowrap;
+}
+
+.kali-help__row span { color: var(--ux-text); font-size: 12.5px; }
+
+#kaliHelpFoot {
+  margin: 14px 0 0;
+  color: var(--ux-muted);
+  font-size: 11px;
+  text-align: center;
+}
+
+/* ---------- Terminal: takliflar ---------- */
+#termSuggest {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: -6px 12px 10px;
+  padding: 10px;
+  border: 1px solid var(--line, #292929);
+  border-top: 0;
+  border-radius: 0 0 10px 10px;
+  background: var(--panel, #151515);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .3);
+}
+
+#termSuggest[hidden] { display: none; }
+
+.term-suggest__item {
+  padding: 5px 9px;
+  border: 1px solid var(--line, #292929);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text, #f0f0f0);
+  font: 12px var(--mono, ui-monospace, Menlo, Consolas, monospace);
+  cursor: pointer;
+}
+
+.term-suggest__item:hover {
+  border-color: var(--red, #ef3b2c);
+  background: rgba(239, 59, 44, .12);
+}
+
+#termSuggestMore {
+  align-self: center;
+  padding: 4px 6px;
+  color: var(--muted, #a5a5a5);
+  font: 11px var(--mono, ui-monospace, Menlo, Consolas, monospace);
+}
+
+/* ---------- So'nggi ko'rilganlar ---------- */
+#recentCommands {
+  margin: 18px 0 4px;
+  padding: 12px 14px;
+  border: 1px solid var(--line, #292929);
+  border-radius: var(--radius, 12px);
+  background: var(--panel, #151515);
+}
+
+#recentCommandsTitle {
+  margin: 0 0 9px;
+  color: var(--muted, #a5a5a5);
+  font: 700 11px/1.2 var(--sans, Inter, system-ui, sans-serif);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+#recentCommandsList { display: flex; flex-wrap: wrap; gap: 7px; }
+
+.recent-chip {
+  padding: 5px 10px;
+  border: 1px solid var(--line, #292929);
+  border-radius: 999px;
+  background: rgba(127, 127, 127, .08);
+  color: var(--text, #f0f0f0);
+  font: 600 12px var(--mono, ui-monospace, Menlo, Consolas, monospace);
+  cursor: pointer;
+}
+
+.recent-chip:hover { border-color: var(--red, #ef3b2c); color: var(--red, #ef3b2c); }
+
+/* ---------- Chop etish / QR ---------- */
+.ux-print-btn { white-space: nowrap; }
+
+.print-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10002;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(0, 0, 0, .72);
+  backdrop-filter: blur(4px);
+}
+
+.print-overlay[hidden] { display: none; }
+
+.print-sheet {
+  width: min(460px, 100%);
+  max-height: calc(100vh - 36px);
+  overflow: auto;
+  padding: 26px;
+  border: 1px solid var(--line, #292929);
+  border-radius: var(--radius, 12px);
+  background: var(--panel, #151515);
+  color: var(--text, #f0f0f0);
+  text-align: center;
+  box-shadow: var(--shadow, 0 18px 50px rgba(0, 0, 0, .55));
+  font: 14px/1.5 var(--sans, Inter, system-ui, sans-serif);
+}
+
+.print-sheet__title { margin: 0; font-size: 20px; font-weight: 800; }
+.print-sheet__hint { margin: 6px 0 18px; color: var(--muted, #a5a5a5); font-size: 12px; }
+
+.print-sheet__qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 180px;
+}
+
+.print-sheet__img {
+  width: 160px;
+  height: 160px;
+  padding: 8px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.print-sheet__img[hidden] { display: none; }
+
+.print-sheet__fallback[hidden] { display: none; }
+.print-sheet__fallback { max-width: 100%; color: var(--muted, #a5a5a5); font-size: 12px; }
+.print-sheet__fallback code {
+  display: block;
+  margin-top: 8px;
+  padding: 8px;
+  border: 1px solid var(--line, #292929);
+  border-radius: 6px;
+  word-break: break-all;
+  color: var(--text, #f0f0f0);
+  font: 11px var(--mono, ui-monospace, Menlo, Consolas, monospace);
+}
+
+.print-sheet__url {
+  margin: 16px 0 0;
+  padding: 9px 10px;
+  border: 1px solid var(--line, #292929);
+  border-radius: 8px;
+  word-break: break-all;
+  color: var(--text, #f0f0f0);
+  font: 12px var(--mono, ui-monospace, Menlo, Consolas, monospace);
+}
+
+.print-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  #kaliHelpBox { padding: 18px 16px 14px; }
+  .kali-help__row { grid-template-columns: 1fr; gap: 4px; }
+  .kali-help__row kbd { justify-self: start; white-space: normal; }
+  .kali-help__row kbd, .kali-help__row span { font-size: 11.5px; }
+  #termSuggest { margin: -4px 8px 8px; padding: 8px; }
+  #recentCommands { padding: 10px; }
+  .print-sheet { padding: 20px 16px; }
+  .print-sheet__title { font-size: 18px; }
+  .print-actions { flex-direction: column; }
+}
+
+/* ---------- Chop etish: A4, faqat kerakli elementlar ---------- */
+@page { size: A4; margin: 14mm; }
+
+@media print {
+  html, body { background: #fff !important; color: #000 !important; }
+  body { background: #fff !important; color: #000 !important; }
+
+  header, .k-header, .site-header, nav, .main-nav, .k-nav, footer,
+  .k-footer, .site-footer, .a11y-bar, .to-top, .skip-link,
+  button, .btn, .mini-btn, .icon-btn, .print-actions,
+  #kaliHelpDialog, #termSuggest, #recentCommands, .ux-print-btn { display: none !important; }
+
+  .print-overlay {
+    position: static !important;
+    inset: auto !important;
+    display: block !important;
+    padding: 0 !important;
+    background: #fff !important;
+    backdrop-filter: none !important;
+  }
+
+  .print-overlay[hidden] { display: none !important; }
+
+  .print-sheet {
+    display: block !important;
+    width: 100% !important;
+    max-height: none !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-align: center !important;
+  }
+
+  .print-sheet__title, .print-sheet__hint, .print-sheet__url, .print-sheet__fallback {
+    color: #000 !important;
+  }
+
+  .print-sheet__title { font-size: 24pt !important; }
+  .print-sheet__hint { margin-bottom: 16px !important; font-size: 12pt !important; }
+  .print-sheet__qr { min-height: auto !important; }
+  .print-sheet__img { width: 320px !important; height: 320px !important; padding: 0 !important; border-radius: 0 !important; }
+  .print-sheet__url {
+    margin-top: 18px !important;
+    padding: 12px !important;
+    border-color: #999 !important;
+    font-size: 14pt !important;
+    word-break: break-all;
+  }
+  .print-sheet__fallback { font-size: 14pt !important; }
+  .print-sheet__fallback code { border-color: #999 !important; color: #000 !important; font-size: 12pt !important; }
+}

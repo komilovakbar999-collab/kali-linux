@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O'rganish rejasi — Kali Linux</title>
+  <meta name="description" content="Kali Linux va Linux buyruqlarini bosqichma-bosqich o'rganish rejasi: 8 bosqich, izohlar, misollar va nazorat testi.">
+  <meta name="theme-color" content="#090909">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23ef3b2c'/%3E%3Cpath d='M20 14v36M20 32l22-18M20 32l22 18' fill='none' stroke='white' stroke-width='7'/%3E%3C/svg%3E">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://kvdb.io https://ipapi.co https://ipwho.is https://api.qrserver.com; base-uri 'self'; form-action 'self'">
+  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="extras.css">
+  <link rel="stylesheet" href="gamify.css">
+  <link rel="stylesheet" href="dock.css">
+  <link rel="stylesheet" href="man.css">
+  <link rel="stylesheet" href="goals.css?v=13">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#ef3b2c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="icons/icon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="O'rganish rejasi — Kali Linux">
+  <meta property="og:description" content="Linux va Kali Linux buyruqlarini bosqichma-bosqich o'rganish rejasi: 8 bosqich, izohlar va misollar.">
+  <meta property="og:image" content="og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <script src="site.config.js"></script>
+  <script src="commands.js"></script>
+  <script src="synonyms.js"></script>
+<script src="protect.js"></script>
+  <script src="page-meta.js"></script>
+  <script src="seo.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Asosiy qismga o'tish</a>
+
+  <header class="k-header">
+    <div class="k-header__inner">
+      <a class="k-logo" href="index.html">
+        <span class="k-logo__mark">K</span>
+        <span class="k-logo__text"><strong data-brand>Kali Linux</strong><small><em>command</em> reference</small></span>
+      </a>
+      <nav class="main-nav k-nav" id="mainNav" aria-label="Asosiy menyu">
+        <a href="index.html" data-i18n="navHome">Bosh sahifa</a>
+        <a href="index.html#arsenal" data-i18n="navTools">Kali vositalari</a>
+        <a href="index.html#commands" data-i18n="navCommands">Buyruqlar</a>
+        <a href="index.html#terminal" data-i18n="navTerminal">Terminal</a>
+        <a href="index.html#quiz" data-i18n="navQuiz">Test</a>
+        <a href="cheatsheet.html" data-i18n="navCheat">Tez yordam</a>
+        <a href="learn.html" class="active" data-i18n="navLearn">O'rganish rejasi</a>
+        <a href="lab.html" data-i18n="navLab">Lab</a>
+        <a href="flashcards.html">Kartalar</a>
+      </nav>
+      <div class="k-header__right">
+        <div class="lang-switch" role="group" aria-label="Til / Язык">
+          <button type="button" class="lang-btn active" data-lang="uz">UZ</button>
+          <button type="button" class="lang-btn" data-lang="ru">RU</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a class="btn btn--red btn--sm" href="index.html#quiz">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0zM7 6H4v2a3 3 0 003 3M17 6h3v2a3 3 0 01-3 3"/></svg>
+          <span data-i18n="navQuiz">Test</span>
+        </a>
+        <button type="button" class="icon-btn k-menu" id="menuBtn" data-i18n-title="menuLabel" aria-label="Menyu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container">
+        <div class="kicker">KALI LINUX / LEARNING PATH</div>
+        <h1 data-i18n="learnTitle">Linuxni o'rganish rejasi</h1>
+        <p data-i18n="learnSub">8 bosqichda asoslardan Kali Linux vositalarigacha.</p>
+      </div>
+    </section>
+
+    <div class="container learn-wrap">
+      <div class="progress-panel">
+        <div class="progress-panel__num" id="progressText">0%</div>
+        <div class="progress-panel__info">
+          <strong data-i18n="learnProgress">Bajarilgan</strong>
+          <span id="progressCount">0 / 8</span>
+          <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+          <span class="progress-next" id="progressNext"></span>
+        </div>
+        <div class="progress-actions">
+          <button type="button" class="btn btn--ghost btn--sm" id="exportProgress">↓ <span data-i18n="learnExport">Jarayonni eksport qilish</span></button>
+          <button type="button" class="btn btn--ghost btn--sm" id="importProgressBtn">↑ <span data-i18n="importData">Import qilish</span></button>
+          <input type="file" id="importProgressFile" accept=".json,application/json" hidden>
+          <button type="button" class="btn btn--ghost btn--sm" id="printPlan">⎙ <span data-i18n="learnPrint">Rejani chop etish</span></button>
+          <button type="button" class="btn btn--ghost btn--sm" id="resetProgress" data-i18n="learnReset">Jarayonni tiklash</button>
+        </div>
+      </div>
+
+      <div class="learn-toolbar">
+        <input type="search" id="stageSearch" spellcheck="false" data-i18n-ph="learnSearchPh" data-i18n-aria="ariaSearch" aria-label="Qidirish" placeholder="Bosqich ichida qidirish…">
+        <div class="learn-filters" id="stageFilters"></div>
+      </div>
+
+      <div class="stage-grid" id="stages"></div>
+
+      <div class="ethics-banner" style="margin-top:30px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 9v5m0 3v.1"/></svg>
+        <div><strong data-i18n="ethicsTitle">Xavfsizlik eslatmasi</strong><span data-i18n="ethicsText">Kali Linux vositalarini faqat o'zingizga tegishli yoki yozma ruxsat olingan tizimlarda ishlating.</span></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="k-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <button type="button" class="btn btn--ghost btn--sm" id="installBtn" data-i18n="installApp" hidden>Ilovani o'rnatish</button>
+        <span>© <span class="year">2026</span> Kali Linux O'zbekcha</span>
+        <span data-i18n="madeWith">O'zbek linuxchilari uchun qilingan ♥</span>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="to-top" id="toTop" data-i18n-title="toTopHint" aria-label="↑" title="Yuqoriga">↑</button>
+
+  <script src="i18n.js"></script>
+  <script src="common.js"></script>
+  <script src="visits.js"></script>
+  <script src="learn.js"></script>
+  <script src="stats-plus.js"></script>
+  <script src="ux.js?v=18"></script>
+  <script src="gamify.js"></script>
+  <script src="dock.js"></script>
+  <script src="goals.js"></script>
+  <script src="topcopy.js"></script>
+  <script src="man.js"></script>
+</body>
+</html>

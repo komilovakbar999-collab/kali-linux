@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imtihon rejimi — Kali Linux</title>
+  <meta name="description" content="Kali Linux buyruqlari bo'yicha professional imtihon: 20 savol, 45 daqiqa, natija tahlili va PNG sertifikat.">
+  <meta name="theme-color" content="#090909">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23ef3b2c'/%3E%3Cpath d='M20 14v36M20 32l22-18M20 32l22 18' fill='none' stroke='white' stroke-width='7'/%3E%3C/svg%3E">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://kvdb.io https://ipapi.co https://ipwho.is https://api.qrserver.com; base-uri 'self'; form-action 'self'">
+  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="extras.css">
+  <link rel="stylesheet" href="dock.css">
+  <link rel="stylesheet" href="man.css">
+  <link rel="stylesheet" href="exam.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icons/icon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Imtihon rejimi — Kali Linux">
+  <meta property="og:description" content="20 savol, 45 daqiqa, batafsil tahlil va PNG sertifikat. Kali Linux buyruqlari bo'yicha professional imtihon.">
+  <meta property="og:image" content="og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="og-image.png">
+  <script src="protect.js"></script>
+  <script src="page-meta.js"></script>
+  <script src="seo.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-exam-i18n="skipLink">Asosiy qismga o'tish</a>
+
+  <header class="k-header">
+    <div class="k-header__inner">
+      <a class="k-logo" href="index.html">
+        <span class="k-logo__mark">K</span>
+        <span class="k-logo__text"><strong data-brand>Kali Linux</strong><small><em>command</em> reference</small></span>
+      </a>
+      <div class="k-header__right">
+        <div class="quiz-lang lang-switch" role="group" aria-label="Til / Язык / Language">
+          <button type="button" class="quiz-lang__btn is-active" data-exam-lang="uz" aria-pressed="true">UZ</button>
+          <button type="button" class="quiz-lang__btn" data-exam-lang="ru" aria-pressed="false">RU</button>
+          <button type="button" class="quiz-lang__btn" data-exam-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="mini-btn mini-btn--red" href="all.html" data-exam-i18n="allPages">Barcha sahifalar</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="exam-page container">
+    <section class="exam-hero">
+      <p class="kicker">KALI LINUX / EXAM MODE</p>
+      <h1 data-exam-i18n="pageTitle">Imtihon rejimi</h1>
+      <p class="exam-lead" data-exam-i18n="pageLead">20 ta savol, 45 daqiqa. Har kategoriyadan savollar, batafsil tahlil va sertifikat.</p>
+      <div class="exam-meta" aria-live="polite">
+        <span class="exam-meta__item" id="examBestBadge"></span>
+      </div>
+    </section>
+
+    <section class="exam-shell" id="examShell" aria-label="Imtihon">
+      <div class="exam-topbar">
+        <div class="exam-timer" id="examTimer" aria-live="polite">
+          <span class="exam-timer__label" data-exam-i18n="timerLabel">Qolgan vaqt</span>
+          <strong class="exam-timer__value" id="examTimerValue">45:00</strong>
+        </div>
+        <div class="exam-progress-wrap">
+          <div class="exam-progress-head">
+            <span data-exam-i18n="progressLabel">Jarayon</span>
+            <span id="examProgressText">0 / 20</span>
+          </div>
+          <div class="exam-progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0" id="examProgressTrack">
+            <div class="exam-progress-bar" id="examProgressBar"></div>
+          </div>
+        </div>
+        <div class="exam-score-pill" id="examScorePill" hidden>
+          <span data-exam-i18n="scoreLabel">Natija</span>
+          <strong id="examScorePillValue">0/20</strong>
+        </div>
+      </div>
+
+      <div class="exam-layout">
+        <aside class="exam-nav" aria-label="Savollar navigatsiyasi">
+          <div class="exam-nav__head">
+            <span data-exam-i18n="navTitle">Savollar</span>
+            <span class="exam-nav__legend">
+              <span><i class="dot dot--current"></i><span data-exam-i18n="legendCurrent">Joriy</span></span>
+              <span><i class="dot dot--answered"></i><span data-exam-i18n="legendAnswered">Javob</span></span>
+              <span><i class="dot dot--flagged"></i><span data-exam-i18n="legendFlagged">Belgi</span></span>
+            </span>
+          </div>
+          <div class="exam-nav__grid" id="examNavGrid"></div>
+        </aside>
+
+        <section class="exam-card" id="examCard">
+          <div class="exam-card__head">
+            <div>
+              <p class="exam-card__step" id="examStep">Savol 1 / 20</p>
+              <p class="exam-card__type" id="examType"></p>
+            </div>
+            <button type="button" class="exam-flag-btn" id="examFlagBtn" aria-pressed="false">
+              <span class="exam-flag-icon" aria-hidden="true">⚑</span>
+              <span data-exam-i18n="flagBtn">Tekshirish uchun belgilash</span>
+            </button>
+          </div>
+
+          <h2 class="exam-question" id="examQuestion"></h2>
+          <p class="exam-question__desc" id="examQuestionDesc"></p>
+
+          <div class="exam-options" id="examOptions" role="radiogroup" aria-label="Javob variantlari"></div>
+
+          <div class="exam-actions">
+            <button type="button" class="btn btn--ghost" id="examPrevBtn" data-exam-i18n="prevBtn">Oldingi</button>
+            <button type="button" class="btn btn--ghost" id="examNextBtn" data-exam-i18n="nextBtn">Keyingi</button>
+            <button type="button" class="btn btn--red" id="examSubmitBtn" data-exam-i18n="submitBtn">Imtihonni yakunlash</button>
+          </div>
+          <p class="exam-status" id="examStatus" role="status" aria-live="polite"></p>
+        </section>
+      </div>
+    </section>
+
+    <section class="exam-result" id="examResult" hidden>
+      <div class="exam-result__hero">
+        <p class="kicker" data-exam-i18n="resultKicker">NATIJA</p>
+        <h2 data-exam-i18n="resultTitle">Imtihon yakunlandi</h2>
+        <p class="exam-result__summary" id="examResultSummary"></p>
+        <div class="exam-result__stats">
+          <div class="exam-stat"><span data-exam-i18n="statScore">Ball</span><strong id="examStatScore">0/20</strong></div>
+          <div class="exam-stat"><span data-exam-i18n="statPercent">Foiz</span><strong id="examStatPercent">0%</strong></div>
+          <div class="exam-stat"><span data-exam-i18n="statGrade">Baho</span><strong id="examStatGrade">D</strong></div>
+          <div class="exam-stat"><span data-exam-i18n="statTime">Vaqt</span><strong id="examStatTime">—</strong></div>
+        </div>
+        <div class="exam-result__actions">
+          <button type="button" class="btn btn--red" id="examRestartBtn" data-exam-i18n="restartBtn">Qayta boshlash</button>
+          <a class="btn btn--ghost" href="https://t.me/LinuxCoreX" target="_blank" rel="noopener" data-exam-i18n="ctaBtn">@LinuxCoreX</a>
+        </div>
+      </div>
+
+      <div class="exam-cert">
+        <div class="exam-cert__form">
+          <h3 data-exam-i18n="certTitle">PNG sertifikat</h3>
+          <p data-exam-i18n="certLead">Ismingizni kiriting va sertifikatni yuklab oling.</p>
+          <label class="exam-cert__label" for="examNameInput" data-exam-i18n="certNameLabel">Ism</label>
+          <input class="exam-cert__input" id="examNameInput" type="text" maxlength="48" autocomplete="name" placeholder="Kali User">
+          <div class="exam-cert__actions">
+            <button type="button" class="btn btn--red btn--sm" id="examCertBtn" data-exam-i18n="certDownload">Sertifikatni yuklab olish</button>
+          </div>
+          <p class="exam-cert__note" id="examCertNote" role="status" aria-live="polite"></p>
+        </div>
+        <div class="exam-cert__preview">
+          <canvas id="examCertCanvas" width="900" height="500" aria-label="Sertifikat ko'rinishi"></canvas>
+        </div>
+      </div>
+
+      <div class="exam-analysis">
+        <div class="exam-analysis__head">
+          <h3 data-exam-i18n="analysisTitle">Javoblar tahlili</h3>
+          <p data-exam-i18n="analysisLead">Har bir savol bo'yicha tanlovingiz va to'g'ri javob.</p>
+        </div>
+        <div class="exam-analysis__list" id="examAnalysisList"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="k-footer">
+    <div class="container">
+      <span data-exam-i18n="footerText">© 2026 Kali Linux — buyruqlar va vositalar</span>
+      <a href="https://t.me/LinuxCoreX" target="_blank" rel="noopener">@LinuxCoreX</a>
+    </div>
+  </footer>
+
+  <script src="site.config.js"></script>
+  <script src="commands.js"></script>
+  <script src="synonyms.js"></script>
+  <script src="i18n.js"></script>
+  <script src="common.js"></script>
+  <script src="visits.js"></script>
+  <script src="ux.js?v=18"></script>
+  <script src="gamify.js"></script>
+  <script src="dock.js"></script>
+  <script src="topcopy.js"></script>
+  <script src="exam.js"></script>
+  <script src="man.js"></script>
+</body>
+</html>

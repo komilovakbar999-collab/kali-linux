@@ -1,0 +1,470 @@
+/* Kali Linux — buyruq quruvchisi, xavfsizlik belgilari va o'xshash buyruqlar.
+ * Asosiy o'zgaruvchilar styles.css dan olinadi; zaxira qiymatlar mustaqil ishlash uchun. */
+
+/* ---------- Buyruq quruvchisi ---------- */
+#commandBuilder {
+  --cb-panel: var(--panel, #151515);
+  --cb-panel-3: var(--panel-3, #242424);
+  --cb-line: var(--line, #292929);
+  --cb-text: var(--text, #f0f0f0);
+  --cb-muted: var(--muted, #a5a5a5);
+  --cb-red: var(--red, #ef3b2c);
+  --cb-red-2: var(--red-2, #ff5a45);
+  --cb-amber: var(--amber, #f5b942);
+  --cb-green: var(--green, #7ac74f);
+  --cb-cyan: var(--cyan, #56c8d8);
+  --cb-mono: var(--mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace);
+  margin-top: 24px;
+  color: var(--cb-text);
+  font-family: var(--sans, Inter, system-ui, -apple-system, sans-serif);
+  scroll-margin-top: 90px;
+}
+
+.cmd-builder__card {
+  position: relative;
+  padding: 24px 26px 22px;
+  border: 1px solid var(--cb-line);
+  border-radius: 16px;
+  background: linear-gradient(155deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .012)), var(--cb-panel);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .05);
+  overflow: hidden;
+}
+
+.cmd-builder__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cb-red), var(--cb-red-2) 45%, transparent 85%);
+}
+
+#commandBuilder .cmd-builder__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+#commandBuilder .cmd-builder__title {
+  margin: 0 0 5px;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+
+#commandBuilder .cmd-builder__title::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 17px;
+  margin-right: 10px;
+  vertical-align: -2px;
+  border-radius: 3px;
+  background: var(--cb-red);
+}
+
+#commandBuilder .cmd-builder__sub {
+  max-width: 620px;
+  margin: 0;
+  color: var(--cb-muted);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+#commandBuilder .cmd-builder__mark {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(239, 59, 44, .4);
+  border-radius: 10px;
+  background: rgba(239, 59, 44, .1);
+  color: var(--cb-red-2);
+  font: 700 18px var(--cb-mono);
+}
+
+#commandBuilder .cmd-builder__grid {
+  display: grid;
+  grid-template-columns: minmax(180px, .9fr) minmax(220px, 1.1fr);
+  gap: 14px;
+}
+
+#commandBuilder .cmd-builder__field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+
+#commandBuilder .cmd-builder__label {
+  display: inline-block;
+  margin-bottom: 7px;
+  color: var(--cb-muted);
+  font: 600 10.5px/1.3 var(--cb-mono);
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+#commandBuilder .cmd-builder__field .cmd-builder__label { margin-bottom: 0; }
+
+#commandBuilder select,
+#commandBuilder input[type="text"] {
+  width: 100%;
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid var(--cb-line);
+  border-radius: 10px;
+  background: var(--cb-panel-3);
+  color: var(--cb-text);
+  font: 13px/1.3 var(--cb-mono);
+  outline: none;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+#commandBuilder select:hover,
+#commandBuilder input[type="text"]:hover { border-color: rgba(239, 59, 44, .45); }
+
+#commandBuilder select:focus-visible,
+#commandBuilder input[type="text"]:focus-visible {
+  border-color: var(--cb-red);
+  box-shadow: 0 0 0 3px rgba(239, 59, 44, .16);
+}
+
+#commandBuilder select option {
+  background: var(--cb-panel-3);
+  color: var(--cb-text);
+}
+
+#commandBuilder .cmd-builder__flags-wrap {
+  margin-top: 18px;
+}
+
+#commandBuilder .cmd-builder__flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 38px;
+  max-height: 180px;
+  padding: 2px;
+  overflow-y: auto;
+}
+
+#commandBuilder .cmd-builder__empty {
+  padding: 9px 0;
+  color: var(--cb-muted);
+  font-size: 12px;
+  font-style: italic;
+}
+
+#commandBuilder .cmd-builder__flag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  padding: 8px 11px;
+  border: 1px solid var(--cb-line);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, .025);
+  color: var(--cb-text);
+  font-size: 11.5px;
+  line-height: 1.35;
+  cursor: pointer;
+  transition: border-color .18s ease, background .18s ease;
+}
+
+#commandBuilder .cmd-builder__flag:hover { border-color: rgba(239, 59, 44, .45); }
+
+#commandBuilder .cmd-builder__flag:has(input:checked) {
+  border-color: rgba(239, 59, 44, .65);
+  background: rgba(239, 59, 44, .09);
+}
+
+#commandBuilder .cmd-builder__flag-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+}
+
+#commandBuilder .cmd-builder__flag-box {
+  display: inline-grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 15px;
+  height: 15px;
+  border: 1px solid var(--cb-line);
+  border-radius: 4px;
+  background: var(--cb-panel-3);
+  color: transparent;
+  font: 700 10px/1 var(--cb-mono);
+  transition: background .18s ease, border-color .18s ease, color .18s ease;
+}
+
+#commandBuilder .cmd-builder__flag-input:checked + .cmd-builder__flag-box {
+  border-color: var(--cb-red);
+  background: var(--cb-red);
+  color: #fff;
+}
+
+#commandBuilder .cmd-builder__flag-input:focus-visible + .cmd-builder__flag-box {
+  outline: 2px solid var(--cb-red-2);
+  outline-offset: 2px;
+}
+
+#commandBuilder .cmd-builder__flag-text {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+#commandBuilder .cmd-builder__flag-text::first-line {
+  color: var(--cb-cyan);
+  font-family: var(--cb-mono);
+}
+
+#commandBuilder .cmd-builder__output {
+  position: relative;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--cb-line);
+}
+
+#commandBuilder .cmd-builder__output-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+#commandBuilder .cmd-builder__output-head .cmd-builder__label { margin-bottom: 9px; }
+
+#commandBuilder .cmd-builder__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+#commandBuilder .cmd-builder__btn {
+  padding: 9px 14px;
+  border: 1px solid var(--cb-line);
+  border-radius: 9px;
+  background: var(--cb-panel-3);
+  color: var(--cb-text);
+  font: 600 11.5px/1 var(--cb-mono);
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+#commandBuilder .cmd-builder__btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--cb-red);
+}
+
+#commandBuilder .cmd-builder__btn:focus-visible {
+  outline: 2px solid var(--cb-red-2);
+  outline-offset: 2px;
+}
+
+#commandBuilder .cmd-builder__btn--copy {
+  border-color: var(--cb-red);
+  background: var(--cb-red);
+  color: #fff;
+}
+
+#commandBuilder .cmd-builder__btn--copy:hover {
+  background: var(--cb-red-2);
+  box-shadow: 0 8px 22px rgba(239, 59, 44, .3);
+}
+
+#commandBuilder #builderOutput {
+  display: block;
+  min-height: 46px;
+  margin-top: 2px;
+  padding: 13px 14px;
+  border: 1px solid var(--cb-line);
+  border-left: 3px solid var(--cb-red);
+  border-radius: 0 10px 10px 0;
+  background: var(--cb-panel-3);
+  color: var(--cb-cyan);
+  font: 13px/1.55 var(--cb-mono);
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+#commandBuilder .cmd-builder__msg {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--cb-green);
+  font: 600 11.5px/1.3 var(--cb-mono);
+  opacity: 0;
+  transform: translateY(-3px);
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+#commandBuilder .cmd-builder__msg.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Xavfsizlik darajasi ---------- */
+.safety-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 19px;
+  height: 19px;
+  margin-left: 6px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font: 11px/1 var(--mono, ui-monospace, monospace);
+  vertical-align: middle;
+  cursor: help;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.safety-badge[data-level="high"] {
+  border-color: rgba(239, 59, 44, .55);
+  background: rgba(239, 59, 44, .16);
+  box-shadow: 0 0 10px rgba(239, 59, 44, .18);
+}
+
+.safety-badge[data-level="mid"] {
+  border-color: rgba(245, 185, 66, .55);
+  background: rgba(245, 185, 66, .14);
+  box-shadow: 0 0 10px rgba(245, 185, 66, .14);
+}
+
+.safety-badge[data-level="low"] {
+  border-color: rgba(122, 199, 79, .5);
+  background: rgba(122, 199, 79, .13);
+  box-shadow: 0 0 10px rgba(122, 199, 79, .12);
+}
+
+.safety-badge:focus-visible { outline: 2px solid var(--cyan, #56c8d8); outline-offset: 2px; }
+
+/* ---------- O'xshash buyruqlar ---------- */
+#similarCommands {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--line, #292929);
+  color: var(--text, #f0f0f0);
+  font-family: var(--sans, Inter, system-ui, -apple-system, sans-serif);
+}
+
+#similarCommands .similar-commands__title {
+  margin: 0 0 4px;
+  color: var(--text, #f0f0f0);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+#similarCommands .similar-commands__title::before {
+  content: '◆';
+  margin-right: 8px;
+  color: var(--red, #ef3b2c);
+  font-size: 10px;
+  vertical-align: 1px;
+}
+
+#similarCommands .similar-commands__sub {
+  margin: 0 0 12px;
+  color: var(--muted, #a5a5a5);
+  font-size: 11.5px;
+}
+
+#similarCommands .similar-commands__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+}
+
+#similarCommands .similar-commands__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid var(--line, #292929);
+  border-radius: 10px;
+  background: var(--panel-3, #242424);
+  color: var(--text, #f0f0f0);
+  text-align: left;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+#similarCommands .similar-commands__item:hover {
+  transform: translateY(-2px);
+  border-color: var(--red, #ef3b2c);
+  background: rgba(239, 59, 44, .08);
+}
+
+#similarCommands .similar-commands__item:focus-visible {
+  outline: 2px solid var(--red-2, #ff5a45);
+  outline-offset: 2px;
+}
+
+#similarCommands .similar-commands__name {
+  color: var(--red-2, #ff5a45);
+  font: 700 12.5px/1.3 var(--mono, ui-monospace, monospace);
+}
+
+#similarCommands .similar-commands__desc {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--muted, #a5a5a5);
+  font-size: 11px;
+  line-height: 1.4;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+/* ---------- Kichik ekranlar ---------- */
+@media (max-width: 720px) {
+  #commandBuilder { margin-top: 18px; }
+
+  #commandBuilder .cmd-builder__card { padding: 18px 16px; border-radius: 12px; }
+  #commandBuilder .cmd-builder__head { margin-bottom: 16px; }
+  #commandBuilder .cmd-builder__title { font-size: 17px; }
+  #commandBuilder .cmd-builder__mark { width: 30px; height: 30px; font-size: 15px; }
+  #commandBuilder .cmd-builder__grid { grid-template-columns: 1fr; gap: 12px; }
+  #commandBuilder .cmd-builder__output-head { align-items: flex-start; }
+  #commandBuilder .cmd-builder__actions { width: 100%; }
+  #commandBuilder .cmd-builder__btn { flex: 1 1 auto; text-align: center; }
+  #commandBuilder #builderOutput { font-size: 12px; }
+
+  #similarCommands .similar-commands__grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Chop etish va harakat cheklovi ---------- */
+@media print {
+  #commandBuilder,
+  #similarCommands,
+  .safety-badge { display: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #commandBuilder,
+  #commandBuilder *,
+  #similarCommands,
+  #similarCommands *,
+  .safety-badge {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  #commandBuilder .cmd-builder__btn:hover,
+  #similarCommands .similar-commands__item:hover { transform: none !important; }
+}

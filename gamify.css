@@ -1,0 +1,195 @@
+/* ============================================================
+   GAMIFY — konfetti, halqalar, nishonlar, faollik xaritasi
+   Barcha ranglar mavjud CSS o'zgaruvchilaridan olinadi.
+   ============================================================ */
+
+:root {
+  --gamify-gold: #f5b942;
+  --gamify-heat-0: var(--panel-3, #242424);
+  --gamify-heat-1: rgba(239, 59, 44, .28);
+  --gamify-heat-2: rgba(239, 59, 44, .5);
+  --gamify-heat-3: rgba(239, 59, 44, .75);
+  --gamify-heat-4: var(--red, #ef3b2c);
+}
+
+/* ---------- Konfetti ---------- */
+.gamify-confetti {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  z-index: 9999;
+  background: transparent;
+}
+
+/* ---------- Progress halqalari ---------- */
+.gamify-ring-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  margin-left: 10px;
+  flex: 0 0 auto;
+}
+.gamify-ring {
+  width: 38px;
+  height: 38px;
+  overflow: visible;
+  flex: 0 0 auto;
+}
+.gamify-ring__track,
+.gamify-ring__progress {
+  fill: none;
+  stroke-width: 4;
+}
+.gamify-ring__track { stroke: var(--line, #292929); }
+.gamify-ring__progress {
+  stroke: var(--red-2, #ff5a45);
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset .35s ease;
+}
+.gamify-ring__text {
+  fill: var(--text, #f0f0f0);
+  font: 700 11px var(--mono, ui-monospace, monospace);
+  letter-spacing: -.02em;
+}
+
+/* ---------- Umumiy panel ---------- */
+.gamify-panel {
+  margin: 22px 0;
+  padding: 18px 20px;
+  background: var(--panel, #151515);
+  border: 1px solid var(--line, #292929);
+  border-radius: 10px;
+}
+.gamify-panel__title {
+  margin: 0 0 14px;
+  color: var(--muted, #a5a5a5);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+/* ---------- Yutuq nishonlari ---------- */
+.gamify-badges__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.gamify-badge {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex: 1 1 165px;
+  min-width: 165px;
+  padding: 9px 12px;
+  background: var(--panel-2, #1c1c1c);
+  border: 1px solid var(--line, #292929);
+  border-radius: 8px;
+  transition: border-color .2s, box-shadow .2s, transform .2s, opacity .2s;
+}
+.gamify-badge__icon {
+  font-size: 21px;
+  line-height: 1;
+  filter: grayscale(1);
+  opacity: .45;
+  transition: filter .2s, opacity .2s;
+}
+.gamify-badge__name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text, #f0f0f0);
+}
+.gamify-badge__meta {
+  margin-left: auto;
+  color: var(--text, #f0f0f0);
+  font: 10px var(--mono, ui-monospace, monospace);
+  white-space: nowrap;
+}
+.gamify-badge.is-locked { opacity: .6; }
+.gamify-badge.is-earned {
+  opacity: 1;
+  border-color: rgba(239, 59, 44, .6);
+  background: linear-gradient(180deg, rgba(239, 59, 44, .12), var(--panel-2, #1c1c1c));
+  box-shadow: 0 0 16px rgba(239, 59, 44, .28), inset 0 0 0 1px rgba(239, 59, 44, .12);
+}
+.gamify-badge.is-earned:hover { transform: translateY(-2px); }
+.gamify-badge.is-earned .gamify-badge__icon {
+  filter: none;
+  opacity: 1;
+  text-shadow: 0 0 12px rgba(239, 59, 44, .75);
+}
+.gamify-badge.is-earned .gamify-badge__name { color: var(--red-2, #ff5a45); }
+
+/* ---------- Faollik xaritasi ---------- */
+.gamify-heat__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(9px, 1fr));
+  gap: 4px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.gamify-heat__col {
+  display: grid;
+  grid-template-rows: repeat(7, 11px);
+  gap: 4px;
+}
+.gamify-heat__cell {
+  display: block;
+  width: 100%;
+  height: 11px;
+  min-width: 9px;
+  border: 1px solid rgba(255, 255, 255, .04);
+  border-radius: 2px;
+  background: var(--gamify-heat-0);
+  transition: background-color .2s;
+}
+.gamify-heat__cell--l1 { background: var(--gamify-heat-1); }
+.gamify-heat__cell--l2 { background: var(--gamify-heat-2); }
+.gamify-heat__cell--l3 { background: var(--gamify-heat-3); }
+.gamify-heat__cell--l4 {
+  background: var(--gamify-heat-4);
+  box-shadow: 0 0 7px rgba(239, 59, 44, .35);
+}
+.gamify-heat__cell.is-future { opacity: .28; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 720px) {
+  .gamify-panel { padding: 15px 14px; margin: 16px 0; }
+  .gamify-badge { flex: 1 1 140px; min-width: 140px; padding: 8px 10px; }
+  .gamify-badge__name { font-size: 11px; }
+  .gamify-badge__meta { font-size: 9px; }
+  .gamify-ring { width: 32px; height: 32px; }
+  .gamify-ring-wrap { margin-left: 7px; }
+  .gamify-heat__col { grid-template-rows: repeat(7, 9px); gap: 3px; }
+  .gamify-heat__cell { height: 9px; min-width: 8px; }
+}
+
+@media (max-width: 420px) {
+  .gamify-badges__list { gap: 7px; }
+  .gamify-badge { flex: 1 1 100%; min-width: 0; }
+  .gamify-ring { width: 28px; height: 28px; }
+}
+
+/* ---------- Accessibility / motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .gamify-ring__progress,
+  .gamify-badge,
+  .gamify-badge__icon,
+  .gamify-heat__cell { transition: none; }
+  .gamify-confetti { display: none; }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .gamify-confetti,
+  .gamify-ring-wrap,
+  #gamifyBadges,
+  #gamifyHeatmap,
+  .gamify-panel { display: none !important; }
+}

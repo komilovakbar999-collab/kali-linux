@@ -1,0 +1,1 @@
+/* Admin UI ommaviy saytdan olib tashlandi. */

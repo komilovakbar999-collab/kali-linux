@@ -1,0 +1,103 @@
+/* Kali Linux — qo'shimcha vizuallar (visuals.js). Eski classlarga tegmaydi. */
+:root {
+  --visuals-red: var(--red, #ef3b2c);
+  --visuals-green: #7ac74f;
+  --visuals-dim: var(--dim, #9a9a9a);
+  --visuals-line: var(--line, rgba(255, 255, 255, .1));
+  --visuals-glow: rgba(239, 59, 44, .35);
+}
+
+/* 1) Jonli terminal: JS boshqaradigan typing va caret */
+.hero-term__body.is-visual .htype {
+  width: auto;
+  animation: none; /* eski typingIn animatsiyasi o'rniga JS harflari */
+}
+.hero-term__body.is-visual .hline.is-typing .hcaret {
+  animation: none;
+  opacity: 1;
+  box-shadow: 0 0 12px var(--visuals-red), 0 0 3px #fff;
+}
+.hero-term__body.is-visual .hline.is-updated {
+  animation: visualsLineIn .32s ease both;
+}
+@keyframes visualsLineIn {
+  from { opacity: .25; transform: translateY(-2px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* 2) Count-up raqamlar */
+.stat-cell.is-counting strong {
+  font-variant-numeric: tabular-nums;
+  filter: drop-shadow(0 0 10px var(--visuals-glow));
+  transition: filter .2s ease;
+}
+
+/* 3) Header soati */
+.kali-clock {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  padding: 6px 8px;
+  border: 1px solid var(--visuals-line);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, .02);
+  color: var(--visuals-dim);
+  font: 11px/1 var(--mono);
+  letter-spacing: .02em;
+}
+.kali-clock::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--visuals-red);
+  box-shadow: 0 0 8px var(--visuals-red);
+}
+
+/* 4) Aylanadigan maslahat */
+.hero-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-height: 1.6em;
+  max-width: 520px;
+  margin-top: 10px;
+  color: var(--visuals-dim);
+  font: 11px/1.6 var(--mono);
+}
+.hero-tip::before {
+  content: '›';
+  flex: none;
+  color: var(--visuals-red);
+  font-weight: 700;
+}
+.hero-tip.is-switching {
+  animation: visualsTipIn .45s ease both;
+}
+@keyframes visualsTipIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Moslashuvchanlik: kichik ekranda soat ixcham ko'rinadi */
+@media (max-width: 720px) {
+  .kali-clock { font-size: 9px; padding: 3px 7px; }
+  .hero-tip { max-width: 100%; font-size: 10px; }
+}
+@media (max-width: 420px) {
+  .kali-clock { display: none; }
+}
+
+/* Harakat kamaytirilganda barcha qo'shimcha animatsiyalar o'chadi */
+@media (prefers-reduced-motion: reduce) {
+  .hero-term__body.is-visual .htype,
+  .hero-term__body.is-visual .hline.is-typing .hcaret,
+  .hero-term__body.is-visual .hline.is-updated,
+  .hero-tip.is-switching,
+  .stat-cell.is-counting strong {
+    animation: none !important;
+    transition: none !important;
+  }
+  .hero-term__body.is-visual .htype { width: auto !important; }
+}

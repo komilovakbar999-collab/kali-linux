@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amaliy laboratoriya — Kali Linux</title>
+  <meta name="description" content="Amaliy lab rejimi: lokal va xavfsiz vaziyatli mashqlar, maslahat, yechim, tushuntirish, ball va saqlanadigan jarayon.">
+  <meta name="theme-color" content="#090909">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23ef3b2c'/%3E%3Cpath d='M20 14v36M20 32l22-18M20 32l22 18' fill='none' stroke='white' stroke-width='7'/%3E%3C/svg%3E">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://kvdb.io https://ipapi.co https://ipwho.is https://api.qrserver.com; base-uri 'self'; form-action 'self'">
+  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="extras.css">
+  <link rel="stylesheet" href="gamify.css">
+  <link rel="stylesheet" href="dock.css">
+  <link rel="stylesheet" href="man.css">
+  <link rel="stylesheet" href="goals.css?v=13">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#ef3b2c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icons/icon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Amaliy laboratoriya — Kali Linux">
+  <meta property="og:description" content="Lokal va xavfsiz vaziyatli mashqlar, maslahat, yechim, tushuntirish va saqlanadigan jarayon.">
+  <meta property="og:image" content="og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+<script src="protect.js"></script>
+  <script src="page-meta.js"></script>
+  <script src="seo.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Asosiy qismga o'tish</a>
+
+  <header class="k-header">
+    <div class="k-header__inner">
+      <a class="k-logo" href="index.html">
+        <span class="k-logo__mark">K</span>
+        <span class="k-logo__text"><strong data-brand>Kali Linux</strong><small><em>command</em> reference</small></span>
+      </a>
+
+      <nav class="main-nav k-nav" id="mainNav" aria-label="Asosiy menyu">
+        <a href="index.html#home" data-i18n="navHome">Bosh sahifa</a>
+        <a href="index.html#arsenal" data-i18n="navTools">Kali vositalari</a>
+        <a href="index.html#commands" data-i18n="navCommands">Buyruqlar</a>
+        <a href="index.html#terminal" data-i18n="navTerminal">Terminal</a>
+        <a href="index.html#quiz" data-i18n="navQuiz">Test</a>
+        <a href="cheatsheet.html" data-i18n="navCheat">Tez yordam</a>
+        <a href="learn.html" data-i18n="navLearn">O'rganish rejasi</a>
+        <a href="lab.html" class="active" data-i18n="navLab">Laboratoriya</a>
+        <a href="flashcards.html">Kartalar</a>
+      </nav>
+
+      <div class="k-header__right">
+        <div class="lang-switch" role="group" aria-label="Til / Язык">
+          <button type="button" class="lang-btn active" data-lang="uz" aria-pressed="true">UZ</button>
+          <button type="button" class="lang-btn" data-lang="ru" aria-pressed="false">RU</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button type="button" class="icon-btn k-menu" id="menuBtn" data-i18n-title="menuLabel" aria-label="Menyu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container">
+        <div class="kicker">KALI LINUX / PRACTICE LAB</div>
+        <h1 data-i18n="labTitle">Interaktiv laboratoriya</h1>
+        <p data-i18n="labSub">Amaliy vazifalar bilan Linux buyruqlarini mashq qiling.</p>
+      </div>
+    </section>
+
+    <div class="container learn-wrap">
+      <div class="progress-panel">
+        <div class="progress-panel__num" id="labProgressText">0 / 20 · 0%</div>
+        <div class="progress-panel__info">
+          <strong data-i18n="labProgress">Jarayon</strong>
+          <div class="progress-track"><div class="progress-bar" id="labProgressBar"></div></div>
+          <span class="progress-next" id="labScore">Natija: 0</span>
+        </div>
+      </div>
+
+      <div class="learn-toolbar">
+        <input type="search" id="labSearch" spellcheck="false"
+               data-i18n-ph="searchHint" data-i18n-aria="ariaSearch"
+               aria-label="Qidirish" placeholder="Qidirish uchun buyruq yoki kalit so'z yozing">
+        <select id="labCat" data-i18n-aria="labCategory" aria-label="Kategoriya"
+                style="min-width:160px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--panel-2);color:var(--text);outline:0;font:12px var(--mono)">
+          <option value="all">Barchasi</option>
+        </select>
+        <select id="labDifficulty" data-i18n-aria="labDifficulty" aria-label="Qiyinlik darajasi"
+                style="min-width:160px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--panel-2);color:var(--text);outline:0;font:12px var(--mono)">
+          <option value="all">Barcha darajalar</option>
+          <option value="beginner">Boshlang'ich</option>
+          <option value="intermediate">O'rta</option>
+          <option value="advanced">Ilg'or</option>
+        </select>
+        <button type="button" class="btn btn--ghost btn--sm" id="labReset"
+                data-i18n="labReset" data-i18n-title="labClearProgress"
+                title="Jarayonni tozalash">Qayta boshlash</button>
+      </div>
+
+      <div class="stage-grid" id="labGrid"></div>
+
+      <section class="quiz-card" id="labWork" aria-labelledby="labStageTitle" hidden style="display:none;margin-top:30px;padding:24px">
+        <h2 id="labStageTitle" style="margin:0 0 4px;font-size:22px"></h2>
+        <div class="stage-meta" id="labStageMeta"></div>
+
+        <h3 data-i18n="labScenario" style="margin:20px 0 6px;font-size:13px">Vazifa sharti</h3>
+        <p class="cmd-card__desc" id="labStageScenario"></p>
+
+        <h3 data-i18n="labSteps" style="margin:18px 0 6px;font-size:13px">Bosqichlar</h3>
+        <div class="stage-body" id="labStageSteps"></div>
+
+        <div class="form-group" style="margin-top:20px">
+          <label for="labAnswer" data-i18n="labCommand">Buyruq</label>
+          <input type="text" id="labAnswer" spellcheck="false" autocomplete="off"
+                 data-i18n-ph="labAnswerPh" data-i18n-aria="labAnswerPh"
+                 aria-label="Javobingizni yozing…" placeholder="Javobingizni yozing…">
+        </div>
+
+        <div class="stage-actions" style="flex-wrap:wrap">
+          <button type="button" class="btn btn--red btn--sm" id="labCheck" data-i18n="labCheck">Tekshirish</button>
+          <button type="button" class="mini-btn" id="labHintBtn" data-i18n="labHint">Maslahat</button>
+          <button type="button" class="mini-btn" id="labSolutionBtn" data-i18n="labSolution">Yechim</button>
+          <button type="button" class="mini-btn" id="labCopyCmd" data-i18n="labCopyCmd">Buyruqni nusxalash</button>
+          <button type="button" class="mini-btn" id="labOpenCmd" data-i18n="labOpenCmd">Buyruqni ochish</button>
+          <button type="button" class="mini-btn mini-btn--red" id="labNext" data-i18n="labNext" hidden style="display:none">Keyingi vazifa</button>
+        </div>
+
+        <div id="labHint" class="ethics-banner" tabindex="-1" hidden style="display:none"></div>
+        <div id="labSolution" class="form-group" tabindex="-1" hidden style="display:none"></div>
+        <div id="labWhy" class="ethics-banner" tabindex="-1" hidden style="display:none"></div>
+        <div id="labSafety" class="ethics-banner"></div>
+
+        <p class="quiz-feedback" id="labStatus" role="status" aria-live="polite" style="min-height:22px"></p>
+      </section>
+
+      <div class="ethics-banner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 9v5m0 3v.1"/></svg>
+        <div><strong data-i18n="ethicsTitle">Xavfsizlik eslatmasi</strong><span data-i18n="ethicsText">Kali Linux vositalarini faqat o'zingizga tegishli yoki yozma ruxsat olingan tizimlarda ishlating.</span></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="k-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <button type="button" class="btn btn--ghost btn--sm" id="installBtn" data-i18n="installApp" hidden>Ilovani o'rnatish</button>
+        <span>© <span class="year">2026</span> Kali Linux O'zbekcha</span>
+        <span data-i18n="madeWith">O'zbek linuxchilari uchun qilingan ♥</span>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="to-top" id="toTop" data-i18n-title="toTopHint" aria-label="↑" title="Yuqoriga">↑</button>
+
+  <script src="site.config.js"></script>
+  <script src="commands.js"></script>
+  <script src="synonyms.js"></script>
+  <script src="labs.js"></script>
+  <script src="i18n.js"></script>
+  <script src="common.js"></script>
+  <script src="visits.js"></script>
+  <script src="lab.js"></script>
+  <script src="stats-plus.js"></script>
+  <script src="ux.js?v=18"></script>
+  <script src="gamify.js"></script>
+  <script src="dock.js"></script>
+  <script src="goals.js"></script>
+  <script src="topcopy.js"></script>
+  <script src="man.js"></script>
+</body>
+</html>

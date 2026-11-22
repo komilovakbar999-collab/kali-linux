@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chuqur bilim: Kali vositalari, xatolar va haftalik challenge</title>
+  <meta name="description" content="Kali Linux vositalari haqida chuqur maqolalar, eng keng tarqalgan xavfli xatolar va har hafta yangilanadigan amaliy challenge.">
+  <meta name="theme-color" content="#090909">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23ef3b2c'/%3E%3Cpath d='M20 14v36M20 32l22-18M20 32l22 18' fill='none' stroke='white' stroke-width='7'/%3E%3C/svg%3E">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://kvdb.io https://ipapi.co https://ipwho.is https://api.qrserver.com; base-uri 'self'; form-action 'self'">
+  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="extras.css">
+  <link rel="stylesheet" href="dock.css">
+  <link rel="stylesheet" href="man.css">
+  <link rel="stylesheet" href="tools.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#ef3b2c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icons/icon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Chuqur bilim — Kali vositalari, xatolar va haftalik challenge">
+  <meta property="og:description" content="12 ta Kali vositasi bo'yicha chuqur maqolalar, 12 ta keng tarqalgan xato va har hafta yangilanadigan amaliy vazifa.">
+  <meta property="og:image" content="og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="og-image.png">
+  <script src="protect.js"></script>
+  <script src="page-meta.js"></script>
+  <script src="site.config.js"></script>
+  <script src="commands.js"></script>
+  <script src="labs.js"></script>
+  <script src="i18n.js"></script>
+  <script src="common.js"></script>
+  <script src="tools.js"></script>
+</head>
+<body class="tools-page">
+  <a class="skip-link" href="#main" data-tw="skip">Asosiy qismga o'tish</a>
+
+  <header class="k-header">
+    <div class="k-header__inner">
+      <a class="k-logo" href="index.html">
+        <span class="k-logo__mark">K</span>
+        <span class="k-logo__text"><strong data-brand>Kali Linux</strong><small><em>command</em> reference</small></span>
+      </a>
+
+      <nav class="main-nav k-nav" id="mainNav" aria-label="Asosiy menyu">
+        <a href="index.html" data-tw="navHome">Bosh sahifa</a>
+        <a href="index.html#arsenal" data-tw="navTools">Kali vositalari</a>
+        <a href="index.html#commands" data-tw="navCommands">Buyruqlar</a>
+        <a href="lab.html" data-tw="navLab">Laboratoriya</a>
+        <a href="flashcards.html" data-tw="navCards">Kartalar</a>
+        <a href="tools.html" class="active" data-tw="navDeep">Chuqur bilim</a>
+      </nav>
+
+      <div class="k-header__right">
+        <div class="lang-switch" role="group" data-tw-title="langLabel" aria-label="Til / Язык / Language">
+          <button type="button" class="lang-btn active" data-lang="uz" aria-pressed="true">UZ</button>
+          <button type="button" class="lang-btn" data-lang="ru" aria-pressed="false">RU</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button type="button" class="icon-btn k-menu" id="menuBtn" data-tw-title="menuLabel" aria-label="Menyu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head tools-hero">
+      <div class="container">
+        <div class="kicker">KALI LINUX / DEEP DIVE</div>
+        <h1 data-tw="pageTitle">Chuqur bilim sahifasi</h1>
+        <p data-tw="pageLead">Vositani tushunish, xatodan qochish va har hafta yangi vazifada mashq qilish — hammasi bir joyda.</p>
+      </div>
+    </section>
+
+    <div class="container tw-wrap">
+      <div class="ethics-banner tw-safety">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 9v5m0 3v.1"/></svg>
+        <div>
+          <strong data-tw="safetyTitle">Xavfsizlik eslatmasi</strong>
+          <span data-tw="safetyText">Faqat o'zingizga tegishli yoki yozma ruxsat olingan tizimlarda mashq qiling. Ushbu maqolalar ta'lim uchun.</span>
+        </div>
+      </div>
+
+      <div class="tw-tabs" role="tablist" aria-label="Chuqur bilim bo'limlari" data-tw-title="tablistLabel" id="twTabs">
+        <button type="button" class="tw-tab" role="tab" id="twTabTools" data-tab="tools" aria-controls="twPanelTools" aria-selected="true" tabindex="0">
+          <span aria-hidden="true">🛠️</span> <span data-tw="tabTools">Kali vositalari</span>
+        </button>
+        <button type="button" class="tw-tab" role="tab" id="twTabMistakes" data-tab="mistakes" aria-controls="twPanelMistakes" aria-selected="false" tabindex="-1">
+          <span aria-hidden="true">⚠️</span> <span data-tw="tabMistakes">Keng tarqalgan xatolar</span>
+        </button>
+        <button type="button" class="tw-tab" role="tab" id="twTabChallenge" data-tab="challenge" aria-controls="twPanelChallenge" aria-selected="false" tabindex="-1">
+          <span aria-hidden="true">🎯</span> <span data-tw="tabChallenge">Haftalik challenge</span>
+        </button>
+      </div>
+
+      <section class="tw-panel" role="tabpanel" id="twPanelTools" aria-labelledby="twTabTools" tabindex="0">
+        <div class="tw-panel-head">
+          <h2 data-tw="toolsTitle">Kali vositalari: qisqa qo'llanma</h2>
+          <p data-tw="toolsLead">Kartani bosing — maqsadi, misoli va ehtiyot choralari ochiladi. Har bir vositadagi havola uning buyruq maqolasiga olib boradi.</p>
+        </div>
+        <div class="tw-grid" id="twToolsGrid"></div>
+      </section>
+
+      <section class="tw-panel" role="tabpanel" id="twPanelMistakes" aria-labelledby="twTabMistakes" tabindex="0" hidden>
+        <div class="tw-panel-head">
+          <h2 data-tw="mistakesTitle">Keng tarqalgan xatolar</h2>
+          <p data-tw="mistakesLead">Qizil — qilmang, yashil — to'g'ri usul. Har bir xato qisqa izoh bilan uch tilda tushuntirilgan.</p>
+        </div>
+        <div class="tw-grid tw-grid--mistakes" id="twMistakesGrid"></div>
+      </section>
+
+      <section class="tw-panel" role="tabpanel" id="twPanelChallenge" aria-labelledby="twTabChallenge" tabindex="0" hidden>
+        <div class="tw-panel-head">
+          <h2 data-tw="challengeTitle">Haftalik challenge</h2>
+          <p data-tw="challengeLead">Har hafta实验室 vazifalari ichidan siz uchun barqaror tanlangan bitta vazifa. Yechim yashirin, bajarish natijasi saqlanadi.</p>
+        </div>
+        <div id="twChallenge"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="k-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© <span class="year">2026</span> Kali Linux O'zbekcha</span>
+        <span data-tw="footerText">O'zbek linuxchilari uchun qilingan ♥</span>
+      </div>
+    </div>
+  </footer>
+
+  <p class="tw-live tw-sr-only" id="twLive" role="status" aria-live="polite"></p>
+  <script src="man.js"></script>
+  <script src="dock.js"></script>
+</body>
+</html>

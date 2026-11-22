@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub bilan tahrirlash — Kali Linux</title>
+  <meta name="description" content="Decap CMS orqali GitHub bilan kiring va Kali Linux buyruqlarini to'g'ridan-to'g'ri repo'da tahrirlang.">
+  <meta name="theme-color" content="#ef3b2c">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23ef3b2c'/%3E%3Cpath d='M20 14v36M20 32l22-18M20 32l22 18' fill='none' stroke='white' stroke-width='7'/%3E%3C/svg%3E">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://kvdb.io https://ipapi.co https://ipwho.is https://api.qrserver.com; base-uri 'self'; form-action 'self'">
+  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="extras.css">
+  <link rel="stylesheet" href="dock.css">
+  <link rel="stylesheet" href="man.css">
+  <link rel="stylesheet" href="goals.css?v=13">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-touch-icon" href="icons/icon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="GitHub bilan tahrirlash — Kali Linux">
+  <meta property="og:description" content="GitHub bilan kiring, buyruqlarni to'g'ridan-to'g'ri repo'da tahrirlang. Har bir o'zgartirish PR yaratadi.">
+  <meta property="og:image" content="og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GitHub bilan tahrirlash — Kali Linux">
+  <meta name="twitter:description" content="Decap CMS: sign in with GitHub, edit content in the repo, every change opens a pull request.">
+  <meta name="twitter:image" content="og-image.png">
+  <script src="protect.js"></script>
+  <script src="seo.js"></script>
+</head>
+<body>
+  <header class="k-header">
+    <div class="k-header__inner">
+      <a class="k-logo" href="index.html">
+        <span class="k-logo__mark">K</span>
+        <span class="k-logo__text"><strong>Kali Linux</strong><small><em>command</em> reference</small></span>
+      </a>
+      <div class="k-header__right">
+        <div class="lang-switch" role="group" aria-label="Til / Язык / Language">
+          <button type="button" class="lang-btn active" data-lang="uz">UZ</button>
+          <button type="button" class="lang-btn" data-lang="ru">RU</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a class="mini-btn" href="all.html">Barcha sahifalar</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="main">
+    <section class="hub-hero">
+      <h1>GitHub bilan tahrirlash</h1>
+      <p>GitHub bilan kiring, buyruqlarni to'g'ridan-to'g'ri repo'da tahrirlang. Har bir o'zgartirish PR yaratadi. <span lang="en">Sign in with GitHub — edit, review, deploy.</span> <span lang="ru">Правки идут через pull request в репозитории.</span></p>
+    </section>
+
+    <p id="cms-error" class="hub-note" hidden>Decap CMS yuklanmadi. Internet ulanishini tekshiring yoki sahifani qayta yuklang. <span lang="en">Could not load Decap CMS — check your connection and reload.</span></p>
+    <div id="nc-root"></div>
+  </main>
+
+  <footer class="k-footer">
+    <div class="container">
+      <span>© 2026 Kali Linux — buyruqlar va vositalar</span>
+      <a href="https://t.me/LinuxCoreX" target="_blank" rel="noopener">@LinuxCoreX</a>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js" onerror="document.getElementById('cms-error').hidden = false;"></script>
+  <script src="stats-plus.js"></script>
+  <script src="dock.js"></script>
+  <script src="goals.js"></script>
+  <script src="topcopy.js"></script>
+  <script src="man.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+/* ============================================================
+   TOPCOPY — eng ko'p nusxalangan buyruqlar paneli
+   Faqat yangi class va #topCopyPanel id'si ishlatiladi.
+   ============================================================ */
+
+:root {
+  --topcopy-red: var(--red, #ef3b2c);
+  --topcopy-red-2: var(--red-2, #ff5a45);
+  --topcopy-text: var(--text, #f0f0f0);
+  --topcopy-muted: var(--muted, #a5a5a5);
+  --topcopy-line: var(--line, rgba(255, 255, 255, .1));
+  --topcopy-panel: var(--panel, #151515);
+  --topcopy-panel-2: var(--panel-2, #1c1c1c);
+  --topcopy-mono: var(--mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+}
+
+/* ---------- Shisha panel ---------- */
+.topcopy-panel {
+  margin: 22px 0;
+  padding: 18px 20px 20px;
+  border: 1px solid var(--topcopy-line);
+  border-top: 2px solid var(--topcopy-red);
+  border-radius: 12px;
+  background:
+    linear-gradient(160deg, rgba(239, 59, 44, .07), rgba(255, 255, 255, .015) 45%),
+    var(--topcopy-panel);
+  background-color: rgba(21, 21, 21, .72);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .32), inset 0 1px 0 rgba(255, 255, 255, .04);
+}
+
+.topcopy-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.topcopy-panel__title {
+  margin: 0;
+  color: var(--topcopy-text);
+  font: 800 15px/1.3 var(--topcopy-mono);
+  letter-spacing: -.01em;
+}
+
+.topcopy-panel__badge {
+  flex: none;
+  padding: 4px 8px;
+  border: 1px solid rgba(239, 59, 44, .45);
+  border-radius: 99px;
+  background: rgba(239, 59, 44, .12);
+  color: var(--topcopy-red-2);
+  font: 700 9px/1 var(--topcopy-mono);
+  letter-spacing: .12em;
+  white-space: nowrap;
+}
+
+/* ---------- Bo'sh holat ---------- */
+.topcopy-empty {
+  margin: 0;
+  padding: 14px 4px 2px;
+  color: var(--topcopy-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.topcopy-empty::before {
+  content: '›';
+  margin-right: 7px;
+  color: var(--topcopy-red);
+  font-weight: 700;
+}
+
+/* ---------- Reyting qatorlari ---------- */
+.topcopy-list {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.topcopy-row {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .045);
+}
+.topcopy-row:last-child { border-bottom: 0; }
+
+.topcopy-row__rank {
+  color: var(--topcopy-red-2);
+  font: 800 12px/1 var(--topcopy-mono);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  opacity: .9;
+}
+
+.topcopy-row__body { min-width: 0; }
+
+.topcopy-row__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.topcopy-row__cmd {
+  overflow: hidden;
+  color: var(--topcopy-text);
+  font: 600 12px/1.4 var(--topcopy-mono);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.topcopy-row__count {
+  flex: none;
+  color: var(--topcopy-muted);
+  font: 700 11px/1 var(--topcopy-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Qizil progress bar ---------- */
+.topcopy-row__track {
+  display: block;
+  height: 5px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, .06);
+}
+
+.topcopy-row__bar {
+  display: block;
+  height: 100%;
+  min-width: 3px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--red-dark, #a91f17), var(--topcopy-red), var(--topcopy-red-2));
+  box-shadow: 0 0 10px rgba(239, 59, 44, .45);
+  transition: width .4s cubic-bezier(.22, 1, .36, 1);
+}
+
+.topcopy-row:nth-child(-n+3) .topcopy-row__bar {
+  box-shadow: 0 0 14px rgba(239, 59, 44, .7);
+}
+.topcopy-row:nth-child(-n+3) .topcopy-row__cmd { color: var(--topcopy-red-2); }
+
+/* ---------- Responsive: 720px ---------- */
+@media (max-width: 720px) {
+  .topcopy-panel {
+    margin: 16px 0;
+    padding: 14px 13px 15px;
+    border-radius: 10px;
+  }
+  .topcopy-panel__title { font-size: 13px; }
+  .topcopy-panel__badge { padding: 3px 7px; font-size: 8px; }
+  .topcopy-row { grid-template-columns: 24px minmax(0, 1fr); gap: 7px; padding: 6px 0; }
+  .topcopy-row__rank { font-size: 10px; }
+  .topcopy-row__cmd { font-size: 11px; }
+  .topcopy-row__count { font-size: 10px; }
+  .topcopy-row__track { height: 4px; }
+  .topcopy-empty { font-size: 11px; }
+}
+
+/* ---------- Harakat kamaytirilganda ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .topcopy-row__bar { transition: none; }
+  .topcopy-panel { -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+
+/* ---------- Chop etishda yashirin ---------- */
+@media print {
+  #topCopyPanel,
+  .topcopy-panel { display: none !important; }
+}

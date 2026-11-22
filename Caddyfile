@@ -1,0 +1,17 @@
+:80 {
+  root * /srv/kali-linux
+  encode gzip zstd
+  file_server
+
+  header {
+    X-Content-Type-Options nosniff
+    Referrer-Policy strict-origin-when-cross-origin
+    X-Frame-Options SAMEORIGIN
+  }
+
+  @admin path /admin.html /admin.js
+  handle @admin {
+    redir /admin.html /index.html 302
+    respond /admin.js 404
+  }
+}

@@ -1,0 +1,179 @@
+# Decap CMS konfiguratsiyasi.
+# YOUR_GITHUB_USERNAME va REPO ni o'zingizning GitHub repo ma'lumotlaringiz bilan almashtiring.
+backend:
+  name: github
+  repo: komilovakbar999-collab/kali-linux
+  branch: main
+  auth_type: pkce
+site_url: 
+display_url: 
+media_folder: images
+public_folder: /images
+
+collections:
+  - name: settings
+    label: "Sayt sozlamalari"
+    identifier_field: title
+    file: content/site.json
+    format: json
+    fields:
+      - label: "Nomi"
+        name: title
+        widget: string
+      - label: "Sayt nomi"
+        name: siteName
+        widget: string
+      - label: "Telegram kanal"
+        name: telegram
+        widget: string
+      - label: "Hisoblagich bucket ID"
+        name: statsBucket
+        widget: string
+        required: false
+      - label: "Standart til"
+        name: defaultLang
+        widget: select
+        options:
+          - uz
+          - ru
+          - en
+      - label: "Sayt URL"
+        name: siteUrl
+        widget: string
+
+  - name: categories
+    label: "Kategoriyalar"
+    identifier_field: title
+    file: content/categories.json
+    format: json
+    fields:
+      - label: "Nomi"
+        name: title
+        widget: string
+      - label: "Kategoriyalar"
+        name: categories
+        widget: list
+        fields:
+          - label: "ID (bo'shliqsiz)"
+            name: id
+            widget: string
+          - label: "O'zbekcha"
+            name: uz
+            widget: string
+          - label: "Русский"
+            name: ru
+            widget: string
+          - label: "English"
+            name: en
+            widget: string
+          - label: "Ikonka (emoji)"
+            name: icon
+            widget: string
+
+  - name: commands
+    label: "Buyruqlar"
+    identifier_field: title
+    file: content/commands.json
+    format: json
+    fields:
+      - label: "Nomi"
+        name: title
+        widget: string
+      - label: "Buyruqlar"
+        name: commands
+        widget: list
+        fields:
+          - label: "ID"
+            name: id
+            widget: string
+          - label: "Nomi"
+            name: name
+            widget: string
+          - label: "Sintaksis"
+            name: syntax
+            widget: string
+          - label: "Kategoriya"
+            name: category
+            widget: select
+            options:
+              - all
+              - files
+              - dirs
+              - text
+              - perms
+              - users
+              - processes
+              - system
+              - network
+              - disk
+              - archive
+              - packages
+              - git
+              - tools
+              - kali
+          - label: "Teglar"
+            name: tags
+            widget: list
+            fields:
+              - label: "Teg"
+                name: tag
+                widget: string
+          - label: "Tavsif"
+            name: desc
+            widget: object
+            fields:
+              - label: "O'zbekcha"
+                name: uz
+                widget: string
+              - label: "Русский"
+                name: ru
+                widget: string
+              - label: "English"
+                name: en
+                widget: string
+          - label: "Parametrlar"
+            name: options
+            widget: list
+            fields:
+              - label: "Bayroq"
+                name: flag
+                widget: string
+              - label: "O'zbekcha"
+                name: uz
+                widget: string
+              - label: "Русский"
+                name: ru
+                widget: string
+              - label: "English"
+                name: en
+                widget: string
+          - label: "Misollar"
+            name: examples
+            widget: list
+            fields:
+              - label: "Buyruq"
+                name: cmd
+                widget: string
+              - label: "O'zbekcha"
+                name: uz
+                widget: string
+              - label: "Русский"
+                name: ru
+                widget: string
+              - label: "English"
+                name: en
+                widget: string
+          - label: "Ogohlantirish (ixtiyoriy)"
+            name: notice
+            widget: object
+            required: false
+            fields:
+              - label: "O'zbekcha"
+                name: uz
+                widget: string
+              - label: "Русский"
+                name: ru
+                widget: string
+              - label: "English"
+                name: en
+                widget: string

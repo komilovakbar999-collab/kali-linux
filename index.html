@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kali Linux — buyruqlar va vositalar</title>
+  <meta name="description" content="Linux va Kali Linux buyruqlarining ikki tilli qo'llanmasi: 122 buyruq, 14 Kali vositasi, misollar va tez yordam.">
+  <meta name="theme-color" content="#090909">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23ef3b2c'/%3E%3Cpath d='M20 14v36M20 32l22-18M20 32l22 18' fill='none' stroke='white' stroke-width='7' stroke-linecap='square'/%3E%3C/svg%3E">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://kvdb.io https://ipapi.co https://ipwho.is https://api.qrserver.com; base-uri 'self'; form-action 'self'">
+  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="extras.css">
+  <link rel="stylesheet" href="quiz.css">
+  <link rel="stylesheet" href="visuals.css?v=13">
+  <link rel="stylesheet" href="gamify.css">
+  <link rel="stylesheet" href="dock.css">
+  <link rel="stylesheet" href="man.css">
+  <link rel="stylesheet" href="builder.css">
+  <link rel="stylesheet" href="fun.css">
+  <link rel="stylesheet" href="topcopy.css">
+  <link rel="stylesheet" href="terminal-pro.css">
+  <link rel="stylesheet" href="goals.css?v=13">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#ef3b2c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icons/icon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kali Linux — buyruqlar, lab va test">
+  <meta property="og:description" content="Linux va Kali Linux buyruqlarining ikki tilli ma'lumotnomasi: qidiruv, misollar, amaliy lab va mini-test.">
+  <meta property="og:image" content="og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <script src="site.config.js"></script>
+  <script src="commands.js"></script>
+  <script src="synonyms.js"></script>
+<script src="protect.js"></script>
+  <script src="page-meta.js"></script>
+  <script src="seo.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Asosiy qismga o'tish</a>
+
+  <header class="k-header">
+    <div class="k-header__inner">
+      <a class="k-logo" href="index.html">
+        <span class="k-logo__mark">K</span>
+        <span class="k-logo__text"><strong data-brand>Kali Linux</strong><small><em>command</em> reference</small></span>
+      </a>
+
+      <nav class="main-nav k-nav" id="mainNav" aria-label="Asosiy menyu">
+        <a href="#home" class="active" data-i18n="navHome">Bosh sahifa</a>
+        <a href="#arsenal" data-i18n="navTools">Kali vositalari</a>
+        <a href="#commands" data-i18n="navCommands">Buyruqlar</a>
+        <a href="#terminal" data-i18n="navTerminal">Terminal</a>
+        <a href="#quiz" data-i18n="navQuiz">Test</a>
+        <a href="cheatsheet.html" data-i18n="navCheat">Tez yordam</a>
+        <a href="learn.html" data-i18n="navLearn">O'rganish rejasi</a>
+        <a href="lab.html" data-i18n="navLab">Lab</a>
+        <a href="flashcards.html">Kartalar</a>
+      </nav>
+
+      <div class="k-header__right">
+        <div class="lang-switch" role="group" aria-label="Til / Язык">
+          <button type="button" class="lang-btn active" data-lang="uz">UZ</button>
+          <button type="button" class="lang-btn" data-lang="ru">RU</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <button type="button" class="icon-btn" id="paletteOpen" data-i18n-title="headerPalette" aria-label="Tezkor qidiruv" title="Tezkor qidiruv">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        </button>
+        <button type="button" class="icon-btn fav-btn" id="favBtn" data-i18n-title="headerFav" aria-label="Saqlanganlar" title="Saqlanganlar">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+          <span class="fav-count" id="favCount" hidden>0</span>
+        </button>
+        <a class="btn btn--red btn--sm" href="#quiz">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0zM7 6H4v2a3 3 0 003 3M17 6h3v2a3 3 0 01-3 3"/></svg>
+          <span data-i18n="navQuiz">Test</span>
+        </a>
+        <button type="button" class="icon-btn k-menu" id="menuBtn" data-i18n-title="menuLabel" aria-label="Menyu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <canvas class="hero-matrix" id="heroMatrix" aria-hidden="true"></canvas>
+      <div class="hero-glow hero-glow--1" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow--2" aria-hidden="true"></div>
+      <div class="container hero__layout">
+        <div class="hero__content">
+          <div class="hero__kicker" data-i18n="heroKicker">DUNYODAGI ENG KUCHLI PENTEST DISTRO</div>
+          <h1 data-i18n="heroTitle">KALI <span>LINUX</span></h1>
+          <p class="hero__text" data-i18n="heroText">Linux va Kali Linux buyruqlari — o'zbek va rus tillarida. Qidir, o'rgan, nusxala va ishga sol.</p>
+          <div class="hero__actions">
+            <a href="#commands" class="btn btn--red" data-i18n="heroBtn1">Buyruqlarni ko'rish</a>
+            <a href="https://t.me/LinuxCoreX" data-tg target="_blank" rel="noopener" class="btn btn--ghost" data-i18n="heroBtn2">Kanalga obuna bo'lish</a>
+          </div>
+          <div class="hero__note" data-i18n="heroNote">Faqat o'zingizga tegishli yoki ruxsat olingan tizimlarda foydalaning.</div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-visual__ring"></div>
+          <div class="hero-visual__ring hero-visual__ring--2"></div>
+          <div class="hero-term">
+            <div class="hero-term__bar">
+              <span class="hero-term__dots"><i></i><i></i><i></i></span>
+              <span>root@kali — /home/kali</span>
+              <span class="hero-term__live">● LIVE</span>
+            </div>
+            <div class="hero-term__body">
+              <div class="hline"><span class="hprompt">┌──(kali㉿kali)-[~]</span></div>
+              <div class="hline"><span class="hprompt">└─$</span> <span class="htype">nmap -sV 192.168.1.0/24</span><span class="hcaret"></span></div>
+              <div class="hline hdim">Starting Nmap 7.94 ( https://nmap.org )</div>
+              <div class="hline hdim">Nmap scan report for 192.168.1.1</div>
+              <div class="hline hok">[+] 22/tcp open &nbsp;ssh</div>
+              <div class="hline hok">[+] 80/tcp open &nbsp;http</div>
+              <div class="hline hcyan">MAC 00:1A:2B:3C:4D:5E</div>
+              <div class="hline"><span class="hprompt">└─$</span> <span class="hcaret"></span></div>
+            </div>
+            <div class="hero-term__scan"></div>
+          </div>
+          <div class="hero-chip hero-chip--1">◎ NMAP</div>
+          <div class="hero-chip hero-chip--2">◈ METASPLOIT</div>
+          <div class="hero-chip hero-chip--3"># HASHCAT</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-strip">
+      <div class="container">
+        <div class="stats-grid">
+          <button type="button" class="stat-cell" data-stat="commands" data-i18n-title="statHintCommands" title="Buyruqlar ro'yxatiga o'tish"><strong id="statCommands">0</strong><span data-i18n="statsCommands">buyruq</span></button>
+          <button type="button" class="stat-cell" data-stat="tools" data-i18n-title="statHintTools" title="Kali vositalariga o'tish"><strong id="statTools">0</strong><span data-i18n="statsTools">Kali vositasi</span></button>
+          <button type="button" class="stat-cell" data-stat="examples" data-i18n-title="statHintExamples" title="Barcha misollarni ochish"><strong id="statExamples">0</strong><span data-i18n="statsExamples">amaliy misol</span></button>
+          <button type="button" class="stat-cell" data-stat="langs" data-i18n-title="statHintLangs" title="Tilni almashtirish"><strong>2</strong><span data-i18n="statsLangs">til</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="popular">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <div class="kicker" data-i18n="popularKicker">ENG KO'P ISHLATILADIGANLAR</div>
+            <h2 data-i18n="popularTitle">Asosiy buyruqlar</h2>
+          </div>
+          <p data-i18n="popularSub">Har kuni kerak bo'ladigan buyruqlar. Bosing va to'liq tavsifni oching.</p>
+        </div>
+        <div class="day-card" id="dayCard" hidden></div>
+        <div class="day-archive" id="dayArchive" hidden>
+          <div class="day-archive__head">
+            <div>
+              <h3 data-i18n="archiveTitle">Kun buyruqlari arxivi</h3>
+              <p data-i18n="archiveSub">Oxirgi 30 kunda tanlangan buyruqlar.</p>
+            </div>
+            <span class="day-archive__legend" data-i18n="archiveToday">Bugun</span>
+          </div>
+          <div class="day-archive__grid" id="archiveGrid"></div>
+        </div>
+        <div class="card-grid" id="popularGrid"></div>
+      </div>
+    </section>
+
+    <section class="section arsenal" id="arsenal">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <div class="kicker" data-i18n="arsenalKicker">HUJUM VOSITALARI ARSENALI</div>
+            <h2 data-i18n="arsenalTitle">Kali Linux vositalari</h2>
+          </div>
+          <p data-i18n="arsenalSub">Tarmoq, veb, parol va forensika vositalari — tavsif va misollar bilan.</p>
+        </div>
+        <div class="tool-grid" id="toolGrid"></div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="commands">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <div class="kicker" data-i18n="commandsKicker">TO'LIQ MA'LUMOTNOMA</div>
+            <h2 data-i18n="commandsTitle">Barcha buyruqlar</h2>
+          </div>
+          <div class="section__head-side">
+            <p data-i18n="commandsSub">Kategoriya bo'yicha tanlang yoki qidiruvdan foydalaning.</p>
+            <button type="button" class="btn btn--ghost btn--sm" id="examplesOpen">
+              <span>▶</span> <span data-i18n="examplesTitle">Amaliy misollar</span> <span id="examplesBadge"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="browser-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+          <input type="search" id="cmdSearch" autocomplete="off" spellcheck="false" data-i18n-ph="cmdSearchPh" data-i18n-aria="ariaSearch" aria-label="Qidirish" placeholder="Buyruq, vazifa yoki kalit so'z qidirish…">
+          <button type="button" class="search-kbd" id="paletteInline" title="Ctrl+K / ⌘K">Ctrl K</button>
+        </div>
+        <div class="browser-tools">
+          <label class="sort-box"><span data-i18n="sortLabel">Tartib:</span>
+            <select id="cmdSort">
+              <option value="default" data-i18n="sortDefault">Asl tartib</option>
+              <option value="name" data-i18n="sortName">Nomi bo'yicha</option>
+              <option value="cat" data-i18n="sortCategory">Kategoriya bo'yicha</option>
+            </select>
+          </label>
+          <button type="button" class="tool-toggle" id="favOnly" aria-pressed="false">☆ <span data-i18n="favOnly">Faqat saqlanganlar</span></button>
+          <button type="button" class="tool-toggle" id="clearFilters" data-i18n="clearFilters">Filtrlarni tozalash</button>
+        </div>
+        <div class="pills" id="catPills"></div>
+        <div class="cmd-list" id="cmdList"></div>
+        <div class="list-meta"><span id="cmdCount"></span><span>Kali Linux O'zbekcha</span></div>
+      </div>
+    </section>
+
+    <section class="section terminal-section" id="terminal">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <div class="kicker" data-i18n="terminalKicker">JONLI TERMINAL</div>
+            <h2 data-i18n="terminalTitle">Kali terminali — sinab ko'ring</h2>
+          </div>
+          <p data-i18n="terminalSub">Buyruq yozing yoki tayyor misolni bosing. Hamma narsa brauzerda ishlaydi, tizimga ta'sir qilmaydi.</p>
+        </div>
+
+        <div class="terminal-card">
+          <div class="terminal-bar">
+            <span class="terminal-dots"><i></i><i></i><i></i></span>
+            <span class="terminal-title">kali@localhost — ~</span>
+            <button type="button" class="terminal-clear" id="termClear" data-i18n="terminalClear">Tozalash</button>
+          </div>
+          <div class="terminal-body" id="termBody" role="log" aria-live="polite"></div>
+          <form class="terminal-input-row" id="termForm" autocomplete="off">
+            <span class="terminal-prompt" id="termPrompt">kali@localhost:~$</span>
+            <input type="text" id="termInput" spellcheck="false" data-i18n-ph="terminalPh" placeholder="Buyruq yozing… masalan: help">
+            <button type="submit" class="terminal-run" data-i18n-title="runLabel" aria-label="Bajarish">↵</button>
+          </form>
+          <div class="terminal-chips" id="termChips"></div>
+          <div class="terminal-tip" data-i18n="terminalTip">SIMULYATSIYA · haqiqiy tizim buyrug'i bajarilmaydi</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quiz-section" id="quiz">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <div class="kicker" data-i18n="quizKicker">BILIMNI SINAB KO'R</div>
+            <h2 data-i18n="quizTitle">Buyruqlar bo'yicha mini-test</h2>
+          </div>
+          <p data-i18n="quizSub">Tavsifni o'qing va to'g'ri buyruqni tanlang. 5 savol, natija darhol chiqadi.</p>
+          <span class="quiz-best" id="quizBest" hidden></span>
+        </div>
+
+        <div class="quiz-card" id="quizCard">
+          <div class="quiz-top">
+            <div class="quiz-label">
+              <span data-i18n="quizQuestion">Bu tavsif qaysi buyruqqa tegishli?</span>
+              <b id="quizStep">1 / 5</b>
+            </div>
+            <div class="quiz-track"><div class="quiz-bar" id="quizBar"></div></div>
+          </div>
+          <div class="quiz-question" id="quizQuestion">—</div>
+          <div class="quiz-options" id="quizOptions"></div>
+          <div class="quiz-foot">
+            <span class="quiz-feedback" id="quizFeedback"></span>
+            <button type="button" class="btn btn--red btn--sm" id="quizNext" data-i18n="quizNext" disabled>Keyingi savol</button>
+          </div>
+        </div>
+        <div class="quiz-hint" data-i18n="quizHint">1—4 — javob tanlash · Enter — keyingi savol</div>
+      </div>
+    </section>
+
+    <section class="section" id="learn">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <div class="kicker" data-i18n="learnKicker">BOSQICHMA-BOSQICH</div>
+            <h2 data-i18n="learnTitle">Linuxni o'rganish rejasi</h2>
+          </div>
+          <p data-i18n="learnSub">8 bosqichda asoslardan Kali Linux vositalarigacha.</p>
+        </div>
+        <div class="learn-grid" id="learnGrid"></div>
+        <div style="margin-top:26px"><a href="learn.html" class="btn btn--ghost" data-i18n="learnBtn">Rejani ochish</a></div>
+      </div>
+    </section>
+
+    <section class="section" id="feedback">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <div class="kicker" data-i18n="ctaKicker">HAMJAMIYAT</div>
+            <h2 data-i18n="feedbackTitle">Buyruq so'rang yoki fikr yozing</h2>
+          </div>
+          <p data-i18n="feedbackSub">Fikringiz anonim saqlanadi: na ism, na IP yoziladi.</p>
+        </div>
+        <form class="feedback-form" id="feedbackForm">
+          <label class="sr-only" for="feedbackText" data-i18n="feedbackPh">Buyruq yoki taklifingizni yozing…</label>
+          <textarea id="feedbackText" rows="3" maxlength="500" required data-i18n-ph="feedbackPh" data-i18n-aria="feedbackPh" placeholder="Buyruq yoki taklifingizni yozing…" aria-label="Buyruq yoki taklifingizni yozing…"></textarea>
+          <button type="submit" class="btn btn--red" data-i18n="feedbackSend">Yuborish</button>
+          <span class="feedback-status" id="feedbackStatus" role="status" aria-live="polite"></span>
+        </form>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <div>
+          <div class="kicker" data-i18n="ctaKicker">HAMJAMIYAT</div>
+          <h2 data-i18n="ctaTitle">Bilimni birgalikda o'stiramiz</h2>
+          <p data-i18n="ctaText">Har hafta yangi buyruqlar, misollar va qisqa darsliklar — Telegram kanalimizda.</p>
+        </div>
+        <a href="https://t.me/LinuxCoreX" data-tg id="tgCta" target="_blank" rel="noopener" class="btn btn--white" data-i18n="ctaBtn">Kanalga o'tish</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="k-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <a class="k-logo" href="index.html"><span class="k-logo__mark">K</span><span class="k-logo__text"><strong data-brand>Kali Linux</strong><small><em>command</em> reference</small></span></a>
+          <p data-i18n="footerAbout">Linux va Kali Linux buyruqlarining ikki tilli qo'llanmasi. O'zbek linuxchilari uchun.</p>
+        </div>
+        <div class="footer-col">
+          <h3 data-i18n="footerLinks">HAVOLALAR</h3>
+          <a href="#home" data-i18n="navHome">Bosh sahifa</a>
+          <a href="#arsenal" data-i18n="navTools">Kali vositalari</a>
+          <a href="#commands" data-i18n="navCommands">Buyruqlar</a>
+          <a href="learn.html" data-i18n="navLearn">O'rganish rejasi</a>
+        </div>
+        <div class="footer-col">
+          <h3 data-i18n="footerCommunity">HAMJAMIYAT</h3>
+          <a href="https://t.me/LinuxCoreX" data-tg id="tgFooter" target="_blank" rel="noopener">Telegram <span class="footer-channel" data-channel>@LinuxCoreX</span></a>
+          <a href="cheatsheet.html" data-i18n="navCheat">Tez yordam</a>
+          <a href="learn.html" data-i18n="navLearn">O'rganish rejasi</a>
+          <a href="https://github.com" data-github hidden>GitHub ↗</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <button type="button" class="btn btn--ghost btn--sm" id="installBtn" data-i18n="installApp" hidden>Ilovani o'rnatish</button>
+        <span>© <span class="year">2026</span> Kali Linux O'zbekcha</span>
+        <span data-i18n="madeWith">O'zbek linuxchilari uchun qilingan ♥</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="palette-backdrop" id="palette" hidden>
+    <div class="palette" role="dialog" aria-modal="true" aria-label="Tezkor qidiruv">
+      <div class="palette-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <input type="text" id="paletteInput" spellcheck="false" data-i18n-ph="palettePh" placeholder="Buyruq qidirish…">
+        <kbd>ESC</kbd>
+      </div>
+      <div class="palette-results" id="paletteResults"></div>
+      <div class="palette-foot">
+        <span data-i18n="paletteTip">↑↓ tanlash · Enter ochish</span>
+        <span>Ctrl K / ⌘K</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="drawer-backdrop" id="favDrawer" hidden>
+    <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="favDrawerTitle">
+      <div class="drawer__head">
+        <div>
+          <h2 id="favDrawerTitle" data-i18n="savedTitle">Saqlangan buyruqlar</h2>
+          <p data-i18n="savedSub">Tez foydalanish uchun saqlagan buyruqlaringiz.</p>
+        </div>
+        <button type="button" class="modal__close" id="favClose" data-i18n-title="closeLabel" aria-label="Yopish">×</button>
+      </div>
+      <div class="drawer__body" id="favList"></div>
+      <div class="drawer__foot">
+        <button type="button" class="btn btn--ghost btn--block" id="userExport" data-i18n="exportData">Mening ma'lumotlarimni eksport qilish</button>
+        <button type="button" class="btn btn--ghost btn--block" id="userImportBtn" data-i18n="importData">Import qilish</button>
+        <input type="file" id="userImportFile" accept=".json,application/json" hidden>
+        <button type="button" class="btn btn--ghost btn--block" id="favClear" data-i18n="savedClear">Hammasini o'chirish</button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="drawer-backdrop drawer-backdrop--wide" id="examplesDrawer" hidden>
+    <aside class="drawer drawer--wide" role="dialog" aria-modal="true" aria-labelledby="examplesDrawerTitle">
+      <div class="drawer__head">
+        <div>
+          <h2 id="examplesDrawerTitle" data-i18n="examplesTitle">Amaliy misollar</h2>
+          <p data-i18n="examplesSub">Barcha buyruqlarning ishlatilish misollari.</p>
+        </div>
+        <button type="button" class="modal__close" id="examplesClose" data-i18n-title="closeLabel" aria-label="Yopish">×</button>
+      </div>
+      <div class="examples-tools">
+        <input type="search" id="examplesSearch" spellcheck="false" data-i18n-ph="examplesSearchPh" data-i18n-aria="ariaSearch" aria-label="Qidirish" placeholder="Misol yoki buyruq qidirish…">
+        <select id="examplesCat" data-i18n-aria="ariaCategory" aria-label="Kategoriya"></select>
+      </div>
+      <div class="examples-count" id="examplesCount"></div>
+      <div class="drawer__body" id="examplesList"></div>
+      <div class="drawer__foot">
+        <button type="button" class="btn btn--ghost btn--block" id="examplesCopyAll">⧉ <span data-i18n="examplesCopyAll">Hammasini nusxalash</span></button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="modal-backdrop" id="modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal__head">
+        <div>
+          <h2 id="modalTitle">—</h2>
+          <p id="modalLead"></p>
+        </div>
+        <button type="button" class="modal__close" id="modalClose" data-i18n-title="closeLabel" aria-label="Yopish">×</button>
+      </div>
+      <div class="modal__body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+  <button type="button" class="to-top" id="toTop" data-i18n-title="toTopHint" aria-label="↑" title="Yuqoriga">↑</button>
+
+  <script src="i18n.js"></script>
+  <script src="common.js"></script>
+  <script src="visits.js"></script>
+  <script src="feedback.js"></script>
+  <script src="effects.js"></script>
+  <script src="app.js"></script>
+  <script src="stats-plus.js"></script>
+  <script src="ux.js?v=18"></script>
+  <script src="terminal-pro.js"></script>
+  <script src="leaderboard.js"></script>
+  <script src="quiz-plus.js"></script>
+  <script src="visuals.js"></script>
+  <script src="gamify.js"></script>
+  <script src="dock.js"></script>
+  <script src="builder.js"></script>
+  <script src="goals.js"></script>
+  <script src="fun.js"></script>
+  <script src="topcopy.js"></script>
+  <script src="man.js"></script>
+</body>
+</html>

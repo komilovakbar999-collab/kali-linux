@@ -1,0 +1,196 @@
+/* ============================================================
+   GOALS — kunlik maqsadlar, scroll progress, offline indikatori
+   Ranglar mavjud CSS o'zgaruvchilaridan olinadi.
+   ============================================================ */
+
+/* ---------- Scroll progress chizig'i ---------- */
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--red, #ef3b2c);
+  box-shadow: 0 0 10px rgba(239, 59, 44, .65);
+  z-index: 10000;
+  pointer-events: none;
+  transition: width .12s linear;
+}
+
+/* ---------- Kunlik maqsadlar paneli ---------- */
+.goals-panel {
+  margin: 22px 0;
+  padding: 18px 20px;
+  background: var(--panel, #151515);
+  border: 1px solid var(--line, #292929);
+  border-radius: 10px;
+}
+.goals-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.goals-panel__title {
+  margin: 0;
+  color: var(--muted, #a5a5a5);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.goals-streak {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  background: var(--panel-2, #1c1c1c);
+  border: 1px solid var(--line, #292929);
+  border-radius: 999px;
+  color: var(--text, #f0f0f0);
+  font: 11px var(--mono, ui-monospace, monospace);
+  white-space: nowrap;
+}
+.goals-streak b {
+  color: var(--red-2, #ff5a45);
+  font-size: 14px;
+}
+
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.goal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 10px 12px;
+  background: var(--panel-2, #1c1c1c);
+  border: 1px solid var(--line, #292929);
+  border-radius: 8px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.goal.is-done {
+  border-color: rgba(239, 59, 44, .55);
+  box-shadow: inset 0 0 0 1px rgba(239, 59, 44, .12);
+}
+.goal__ring {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+}
+.goals-ring {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.goals-ring__track,
+.goals-ring__progress {
+  fill: none;
+  stroke-width: 4;
+}
+.goals-ring__track { stroke: var(--line, #292929); }
+.goals-ring__progress {
+  stroke: var(--red-2, #ff5a45);
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset .3s ease;
+}
+.goals-ring__text {
+  fill: var(--text, #f0f0f0);
+  font: 700 11px var(--mono, ui-monospace, monospace);
+}
+.goal__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.goal__label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text, #f0f0f0);
+}
+.goal__count {
+  color: var(--muted, #a5a5a5);
+  font: 11px var(--mono, ui-monospace, monospace);
+}
+
+/* ---------- Offline indikatori ---------- */
+.offline-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 8px;
+  padding: 4px 8px;
+  background: var(--panel-2, #1c1c1c);
+  border: 1px solid var(--line, #292929);
+  border-radius: 999px;
+  color: var(--muted, #a5a5a5);
+  font: 10px var(--mono, ui-monospace, monospace);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.offline-badge__dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: var(--green, #7ac74f);
+  box-shadow: 0 0 8px rgba(122, 199, 79, .6);
+  transition: background-color .2s, box-shadow .2s;
+}
+.offline-badge.is-online .offline-badge__text { color: var(--green, #7ac74f); }
+.offline-badge.is-offline .offline-badge__dot {
+  background: #ffb020;
+  box-shadow: 0 0 8px rgba(255, 176, 32, .6);
+}
+.offline-badge.is-offline .offline-badge__text { color: #ffb020; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .goals-grid { grid-template-columns: 1fr; }
+  .goal { padding: 8px 10px; }
+}
+@media (max-width: 720px) {
+  .offline-badge__text { display: none; }
+  .offline-badge { padding: 4px 6px; }
+  .goals-panel { margin: 16px 0; padding: 15px 14px; }
+  .goal__ring { width: 42px; height: 42px; flex-basis: 42px; }
+}
+@media (max-width: 420px) {
+  #offlineBadge { display: none !important; }
+}
+
+/* ---------- Harakat kamaytirilganda ---------- */
+@media (prefers-reduced-motion: reduce) {
+  #scrollProgress,
+  .goals-ring__progress,
+  .goal,
+  .offline-badge__dot {
+    transition: none !important;
+  }
+}
+
+/* ---------- Chop etishda hamma yashirin ---------- */
+@media print {
+  #scrollProgress,
+  #offlineBadge,
+  #goalsPanel,
+  .goals-panel,
+  .goals-panel__head,
+  .goals-grid,
+  .goal,
+  .goals-ring,
+  .goals-streak,
+  .offline-badge {
+    display: none !important;
+  }
+}

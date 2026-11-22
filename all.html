@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barcha sahifalar — Kali Linux</title>
+  <meta name="description" content="Kali Linux qo'llanmasining barcha sahifalari: asosiy sahifa, tez yordam, o'rganish rejasi, amaliy laboratoriya va boshqaruv paneli.">
+  <meta name="theme-color" content="#ef3b2c">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23ef3b2c'/%3E%3Cpath d='M20 14v36M20 32l22-18M20 32l22 18' fill='none' stroke='white' stroke-width='7'/%3E%3C/svg%3E">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://kvdb.io https://ipapi.co https://ipwho.is https://api.qrserver.com; base-uri 'self'; form-action 'self'">
+  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="extras.css">
+  <link rel="stylesheet" href="dock.css">
+  <link rel="stylesheet" href="man.css">
+  <link rel="stylesheet" href="goals.css?v=13">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-touch-icon" href="icons/icon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Barcha sahifalar — Kali Linux">
+  <meta property="og:description" content="Bitta link orqali saytning barcha bo'limlariga o'ting.">
+  <meta property="og:image" content="og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <script src="site.config.js"></script>
+  <style>
+    .hub-hero { padding: 60px 0 26px; }
+    .hub-hero h1 { margin: 0 0 10px; font-size: clamp(32px, 5vw, 54px); letter-spacing: -.04em; }
+    .hub-hero p { max-width: 640px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .hub-card { text-decoration: none; color: inherit; min-height: 170px; }
+    .hub-card .cmd-card__name { font-size: 18px; }
+    .hub-card .cmd-card__syntax { display: block; margin-top: auto; }
+    .hub-note { margin-top: 24px; color: var(--dim); font: 11px var(--mono); }
+  </style>
+<script src="protect.js"></script>
+  <script src="page-meta.js"></script>
+  <script src="seo.js"></script>
+</head>
+<body>
+  <header class="k-header">
+    <div class="k-header__inner">
+      <a class="k-logo" href="index.html">
+        <span class="k-logo__mark">K</span>
+        <span class="k-logo__text"><strong>Kali Linux</strong><small><em>command</em> reference</small></span>
+      </a>
+      <div class="k-header__right">
+        <div class="lang-switch" role="group" aria-label="Til / Язык / Language">
+          <button type="button" class="lang-btn active" data-lang="uz">UZ</button>
+          <button type="button" class="lang-btn" data-lang="ru">RU</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a class="mini-btn mini-btn--red" href="index.html">Bosh sahifa</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="main">
+    <section class="hub-hero">
+      <h1>Barcha sahifalar</h1>
+      <p>Bitta link orqali saytning barcha bo‘limlariga o‘ting: buyruqlar, tez yordam, o‘rganish rejasi, amaliy laboratoriya va boshqaruv paneli.</p>
+    </section>
+
+    <section class="card-grid" aria-label="Sayt bo‘limlari">
+      <a class="cmd-card hub-card" href="index.html">
+        <span class="cmd-card__num">01</span>
+        <span class="cmd-card__name">Bosh sahifa</span>
+        <p class="cmd-card__desc">122 buyruq, 216 misol, kun buyrug‘i, terminal, mini-test va 30 kunlik arxiv.</p>
+        <span class="cmd-card__syntax">index.html</span>
+      </a>
+      <a class="cmd-card hub-card" href="cheatsheet.html">
+        <span class="cmd-card__num">02</span>
+        <span class="cmd-card__name">Tez yordam</span>
+        <p class="cmd-card__desc">Qidiruv, kategoriya filtri, nusxalash, TXT eksport va chop etish.</p>
+        <span class="cmd-card__syntax">cheatsheet.html</span>
+      </a>
+      <a class="cmd-card hub-card" href="learn.html">
+        <span class="cmd-card__num">03</span>
+        <span class="cmd-card__name">O‘rganish rejasi</span>
+        <p class="cmd-card__desc">8 bosqich, eslatmalar, progress va shaxsiy ma’lumot import/eksporti.</p>
+        <span class="cmd-card__syntax">learn.html</span>
+      </a>
+      <a class="cmd-card hub-card" href="lab.html">
+        <span class="cmd-card__num">04</span>
+        <span class="cmd-card__name">Amaliy laboratoriya</span>
+        <p class="cmd-card__desc">35 ta xavfsiz vazifa, maslahat, yechim, tushuntirish va ball.</p>
+        <span class="cmd-card__syntax">lab.html</span>
+      </a>
+      <a class="cmd-card hub-card" href="flashcards.html">
+        <span class="cmd-card__num">05</span>
+        <span class="cmd-card__name">Kartalar bilan takrorlash</span>
+        <p class="cmd-card__desc">122 buyruq uchun flashcard, takrorlash jadvali va progress.</p>
+        <span class="cmd-card__syntax">flashcards.html</span>
+      </a>
+      <a class="cmd-card hub-card" href="command.html?id=ls">
+        <span class="cmd-card__num">06</span>
+        <span class="cmd-card__name">Man sahifa</span>
+        <p class="cmd-card__desc">Har buyruq uchun alohida man sahifa, oldingi/keyingi va nusxalash.</p>
+        <span class="cmd-card__syntax">command.html?id=ls</span>
+      </a>
+      <a class="cmd-card hub-card" href="exam.html">
+        <span class="cmd-card__num">07</span>
+        <span class="cmd-card__name">Imtihon</span>
+        <p class="cmd-card__desc">20 savol, 45 daqiqa, tahlil va PNG sertifikat.</p>
+        <span class="cmd-card__syntax">exam.html</span>
+      </a>
+      <a class="cmd-card hub-card" href="tools.html">
+        <span class="cmd-card__num">08</span>
+        <span class="cmd-card__name">Vositalar va xatolar</span>
+        <p class="cmd-card__desc">Kali vositalari maqolalari, keng tarqalgan xatolar va haftalik challenge.</p>
+        <span class="cmd-card__syntax">tools.html</span>
+      </a>
+      <a class="cmd-card hub-card" href="cms.html">
+        <span class="cmd-card__num">09</span>
+        <span class="cmd-card__name">GitHub CMS</span>
+        <p class="cmd-card__desc">Haqiqiy kirish: kontentni to‘g‘ridan-to‘g‘ri repositoryda tahrirlash.</p>
+        <span class="cmd-card__syntax">cms.html</span>
+      </a>
+    </section>
+  </main>
+
+  <footer class="k-footer">
+    <div class="container">
+      <span>© 2026 Kali Linux — buyruqlar va vositalar</span>
+      <a href="https://t.me/LinuxCoreX" target="_blank" rel="noopener">@LinuxCoreX</a>
+    </div>
+  </footer>
+  <script src="stats-plus.js"></script>
+  <script src="ux.js?v=18"></script>
+  <script src="dock.js"></script>
+  <script src="goals.js"></script>
+  <script src="topcopy.js"></script>
+  <script src="man.js"></script>
+</body>
+</html>

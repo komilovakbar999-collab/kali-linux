@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Sahifa topilmadi | Kali Linux</title>
+  <meta name="description" content="Sahifa topilmadi. Kali Linux buyruqlari qo'llanmasining bosh sahifasi yoki barcha sahifalar hubiga o'ting.">
+  <meta name="theme-color" content="#090909">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23ef3b2c'/%3E%3Cpath d='M20 14v36M20 32l22-18M20 32l22 18' fill='none' stroke='white' stroke-width='7' stroke-linecap='square'/%3E%3C/svg%3E">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://kvdb.io https://ipapi.co https://ipwho.is https://api.qrserver.com; base-uri 'self'; form-action 'self'">
+  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="dock.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="404 — Sahifa topilmadi | Kali Linux">
+  <meta property="og:image" content="og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script src="protect.js"></script>
+  <script>
+    /* 404 must also work when opened directly (file://). Minimal I18N shim:
+       full i18n.js is never required for this page. */
+    (function () {
+      'use strict';
+      if (window.I18N && typeof window.I18N.getLang === 'function') return;
+
+      var DICT = {
+        uz: {
+          nfKicker: 'XATO KODI · 404',
+          nfTitle: 'Sahifa topilmadi',
+          nfDesc: 'Bu manzil mavjud emas yoki ko‘chirilgan. Quyida qidiruvdan foydalaning yoki sayt bo‘limlariga o‘ting.',
+          nfSearchPh: 'Buyruq qidirish… masalan: nmap',
+          nfHome: 'Bosh sahifaga qaytish',
+          nfAll: 'Barcha sahifalar',
+          nfHint: 'Maslahat: buyruq nomini yozib Enter bosing — bosh sahifadagi qidiruv ochiladi.'
+        },
+        ru: {
+          nfKicker: 'КОД ОШИБКИ · 404',
+          nfTitle: 'Страница не найдена',
+          nfDesc: 'Такого адреса нет или он был перемещён. Воспользуйтесь поиском ниже или перейдите в разделы сайта.',
+          nfSearchPh: 'Поиск команды… например: nmap',
+          nfHome: 'На главную',
+          nfAll: 'Все страницы',
+          nfHint: 'Подсказка: введите название команды и нажмите Enter — откроется поиск на главной.'
+        },
+        en: {
+          nfKicker: 'ERROR CODE · 404',
+          nfTitle: 'Page not found',
+          nfDesc: 'This address does not exist or has moved. Use the search below or browse all sections of the site.',
+          nfSearchPh: 'Search a command… e.g. nmap',
+          nfHome: 'Back to home',
+          nfAll: 'All pages',
+          nfHint: 'Tip: type a command name and press Enter — search opens on the home page.'
+        }
+      };
+      var current = 'uz';
+      try {
+        var saved = localStorage.getItem('kali_lang');
+        if (saved && DICT[saved]) current = saved;
+        var m = /[?&]lang=(uz|ru|en)(?:[&#]|$)/.exec(window.location.search || '');
+        if (m && DICT[m[1]]) current = m[1];
+      } catch (e) {}
+
+      function t(key) {
+        return (DICT[current] && DICT[current][key]) || DICT.uz[key] || key;
+      }
+      function lang() { return current; }
+      function setLang(next) {
+        if (!DICT[next]) return;
+        current = next;
+        try { localStorage.setItem('kali_lang', next); } catch (e) {}
+        document.documentElement.lang = next;
+        try {
+          document.dispatchEvent(new CustomEvent('langchange', { detail: { lang: next } }));
+        } catch (err) {
+          var ev;
+          try {
+            ev = document.createEvent('Event');
+            ev.initEvent('langchange', false, false);
+            ev.detail = { lang: next };
+            document.dispatchEvent(ev);
+          } catch (ignore) {}
+        }
+      }
+      window.I18N = { t: t, getLang: lang, setLang: setLang, dict: DICT };
+      document.documentElement.lang = current;
+    })();
+  </script>
+  <script src="page-meta.js"></script>
+
+  <style>
+    .nf-wrap {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background:
+        radial-gradient(900px 420px at 85% -10%, rgba(239, 59, 44, .16), transparent 70%),
+        linear-gradient(180deg, #090909 0%, #050505 100%);
+    }
+    .nf-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.026) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.026) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: linear-gradient(to bottom, #000, transparent 85%);
+      -webkit-mask-image: linear-gradient(to bottom, #000, transparent 85%);
+    }
+    .nf-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #ff5a45, #ef3b2c 45%, #8b0000);
+    }
+    .nf-top, .nf-hero, .nf-foot { position: relative; z-index: 1; }
+    .nf-top {
+      width: min(1200px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 26px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .nf-brand { display: flex; align-items: center; gap: 11px; }
+    .nf-mark {
+      width: 34px; height: 34px;
+      display: grid; place-items: center;
+      border-radius: 6px;
+      background: linear-gradient(145deg, #ff5a45, #a91f17);
+      color: #fff; font: 900 15px var(--mono);
+      box-shadow: 0 0 22px rgba(239, 59, 44, .35);
+    }
+    .nf-brand strong { display: block; font-size: 15px; font-weight: 900; letter-spacing: .02em; }
+    .nf-brand small { display: block; color: var(--dim); font: 10px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+    .nf-hero {
+      width: min(1200px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: clamp(54px, 10vh, 110px) 0 70px;
+      flex: 1;
+    }
+    .nf-kicker {
+      margin: 0 0 12px;
+      color: #ff5a45;
+      font: 800 11px var(--mono);
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+    .nf-code {
+      font: 900 clamp(120px, 24vw, 260px)/.82 var(--mono);
+      letter-spacing: -.09em;
+      background: linear-gradient(180deg, #ffffff 0%, #ff4d3d 65%, #8b0000 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 70px rgba(239, 59, 44, .18);
+    }
+    .nf-hero h1 {
+      margin: 14px 0 10px;
+      font-size: clamp(30px, 5vw, 52px);
+      font-weight: 900;
+      letter-spacing: -.035em;
+      line-height: 1.1;
+    }
+    .nf-desc {
+      max-width: 620px;
+      margin: 0 0 30px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+    .nf-search {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: min(620px, 100%);
+      padding: 6px 8px 6px 18px;
+      border: 1px solid #3a2626;
+      border-radius: 10px;
+      background: #101010;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .4);
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .nf-search:focus-within { border-color: var(--red); box-shadow: 0 12px 40px rgba(239, 59, 44, .14); }
+    .nf-prompt { color: var(--red); font: 800 16px var(--mono); }
+    .nf-search input {
+      flex: 1;
+      min-width: 0;
+      padding: 10px 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--text);
+      font: 14px var(--mono);
+    }
+    .nf-search input::placeholder { color: #6e6e6e; }
+    .nf-search button {
+      flex: 0 0 auto;
+      width: 38px; height: 36px;
+      border: 1px solid var(--red);
+      border-radius: 7px;
+      background: var(--red);
+      color: #fff;
+      font: 800 16px var(--mono);
+    }
+    .nf-search button:hover { background: var(--red-2); border-color: var(--red-2); }
+    .nf-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+    .nf-hint { margin: 22px 0 0; color: var(--dim); font: 11px var(--mono); line-height: 1.7; }
+    .nf-foot {
+      width: min(1200px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 22px 0 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      border-top: 1px solid var(--line);
+      color: #6f6f6f;
+      font: 10px var(--mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .nf-foot a { color: #b5b5b5; }
+    .nf-foot a:hover { color: var(--red-2); }
+    .nf-top .lang-switch button[aria-pressed="true"] { color: #fff; background: rgba(239, 59, 44, .18); }
+  </style>
+</head>
+<body>
+  <main class="nf-wrap">
+    <header class="nf-top">
+      <a class="nf-brand" href="index.html" aria-label="Kali Linux — bosh sahifa">
+        <span class="nf-mark">K</span>
+        <span><strong>Kali Linux</strong><small>command reference</small></span>
+      </a>
+      <div class="lang-switch" role="group" aria-label="Til / Язык / Language">
+        <button type="button" class="lang-btn" data-nf-lang="uz" aria-pressed="true">UZ</button>
+        <button type="button" class="lang-btn" data-nf-lang="ru" aria-pressed="false">RU</button>
+        <button type="button" class="lang-btn" data-nf-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </header>
+
+    <section class="nf-hero" id="main">
+      <p class="nf-kicker" data-nf-i18n="nfKicker">XATO KODI · 404</p>
+      <div class="nf-code" aria-label="404">404</div>
+      <h1 data-nf-i18n="nfTitle">Sahifa topilmadi</h1>
+      <p class="nf-desc" data-nf-i18n="nfDesc">Bu manzil mavjud emas yoki ko‘chirilgan. Quyida qidiruvdan foydalaning yoki sayt bo‘limlariga o‘ting.</p>
+
+      <form class="nf-search" id="nfSearch" action="index.html" method="get" role="search">
+        <span class="nf-prompt" aria-hidden="true">&gt;</span>
+        <input id="nfQuery" type="search" name="q" value="" data-nf-i18n-ph="nfSearchPh" placeholder="Buyruq qidirish… masalan: nmap" autocomplete="off" aria-label="Buyruq qidirish">
+        <button type="submit" aria-label="Qidirish">↵</button>
+      </form>
+
+      <div class="nf-actions">
+        <a class="btn btn--red" href="index.html" data-nf-i18n="nfHome">Bosh sahifaga qaytish</a>
+        <a class="btn btn--ghost" href="all.html" data-nf-i18n="nfAll">Barcha sahifalar</a>
+      </div>
+      <p class="nf-hint" data-nf-i18n="nfHint">Maslahat: buyruq nomini yozib Enter bosing — bosh sahifadagi qidiruv ochiladi.</p>
+    </section>
+
+    <footer class="nf-foot">
+      <span>Kali Linux · O‘zbekcha qo‘llanma</span>
+      <a href="https://t.me/LinuxCoreX" target="_blank" rel="noopener noreferrer">@LinuxCoreX</a>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      'use strict';
+      var I = window.I18N;
+      var input = document.getElementById('nfQuery');
+      var form = document.getElementById('nfSearch');
+      var buttons = document.querySelectorAll('[data-nf-lang]');
+      var timer = null;
+
+      function translate() {
+        Array.prototype.forEach.call(document.querySelectorAll('[data-nf-i18n]'), function (el) {
+          var key = el.getAttribute('data-nf-i18n');
+          var value = '';
+          try { value = I && typeof I.t === 'function' ? I.t(key) : ''; } catch (e) {}
+          if (value && value !== key) el.textContent = value;
+        });
+        Array.prototype.forEach.call(document.querySelectorAll('[data-nf-i18n-ph]'), function (el) {
+          var key = el.getAttribute('data-nf-i18n-ph');
+          var value = '';
+          try { value = I && typeof I.t === 'function' ? I.t(key) : ''; } catch (e) {}
+          if (value && value !== key) el.setAttribute('placeholder', value);
+        });
+      }
+
+      function syncButtons() {
+        var current = 'uz';
+        try { current = I && typeof I.getLang === 'function' ? I.getLang() : 'uz'; } catch (e) {}
+        Array.prototype.forEach.call(buttons, function (btn) {
+          btn.setAttribute('aria-pressed', btn.getAttribute('data-nf-lang') === current ? 'true' : 'false');
+        });
+      }
+
+      function go() {
+        if (!input) return;
+        var q = input.value.trim();
+        if (!q) { input.focus(); return; }
+        window.location.href = 'index.html?q=' + encodeURIComponent(q);
+      }
+
+      translate();
+      syncButtons();
+
+      document.addEventListener('langchange', function () {
+        translate();
+        syncButtons();
+      });
+      Array.prototype.forEach.call(buttons, function (btn) {
+        btn.addEventListener('click', function () {
+          var next = btn.getAttribute('data-nf-lang');
+          if (I && typeof I.setLang === 'function') I.setLang(next);
+          else {
+            document.documentElement.lang = next;
+            syncButtons();
+          }
+        });
+      });
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (timer) clearTimeout(timer);
+          go();
+        });
+      }
+      if (input) {
+        input.addEventListener('input', function () {
+          if (timer) clearTimeout(timer);
+          timer = setTimeout(go, 400);
+        });
+      }
+    })();
+  </script>
+  <script src="dock.js"></script>
+</body>
+</html>

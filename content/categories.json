@@ -1,0 +1,110 @@
+{
+  "title": "Kategoriyalar",
+  "categories": [
+    {
+      "id": "all",
+      "uz": "Barchasi",
+      "ru": "Все",
+      "en": "All",
+      "icon": "✦"
+    },
+    {
+      "id": "files",
+      "uz": "Fayllar",
+      "ru": "Файлы",
+      "en": "Files",
+      "icon": "📄"
+    },
+    {
+      "id": "dirs",
+      "uz": "Papkalar",
+      "ru": "Каталоги",
+      "en": "Directories",
+      "icon": "📁"
+    },
+    {
+      "id": "text",
+      "uz": "Matn",
+      "ru": "Текст",
+      "en": "Text",
+      "icon": "✍️"
+    },
+    {
+      "id": "perms",
+      "uz": "Ruxsatlar",
+      "ru": "Права",
+      "en": "Permissions",
+      "icon": "🔐"
+    },
+    {
+      "id": "users",
+      "uz": "Foydalanuvchilar",
+      "ru": "Пользователи",
+      "en": "Users",
+      "icon": "👤"
+    },
+    {
+      "id": "processes",
+      "uz": "Jarayonlar",
+      "ru": "Процессы",
+      "en": "Processes",
+      "icon": "⚙️"
+    },
+    {
+      "id": "system",
+      "uz": "Tizim",
+      "ru": "Система",
+      "en": "System",
+      "icon": "🖥️"
+    },
+    {
+      "id": "network",
+      "uz": "Tarmoq",
+      "ru": "Сеть",
+      "en": "Network",
+      "icon": "🌐"
+    },
+    {
+      "id": "disk",
+      "uz": "Disk",
+      "ru": "Диск",
+      "en": "Disk",
+      "icon": "💽"
+    },
+    {
+      "id": "archive",
+      "uz": "Arxiv",
+      "ru": "Архивы",
+      "en": "Archives",
+      "icon": "📦"
+    },
+    {
+      "id": "packages",
+      "uz": "Paketlar",
+      "ru": "Пакеты",
+      "en": "Packages",
+      "icon": "🧩"
+    },
+    {
+      "id": "git",
+      "uz": "Git",
+      "ru": "Git",
+      "en": "Git",
+      "icon": "🌿"
+    },
+    {
+      "id": "tools",
+      "uz": "Vositalar",
+      "ru": "Инструменты",
+      "en": "Tools",
+      "icon": "🛠️"
+    },
+    {
+      "id": "kali",
+      "uz": "Kali vositalari",
+      "ru": "Инструменты Kali",
+      "en": "Kali tools",
+      "icon": "🎯"
+    }
+  ]
+}
